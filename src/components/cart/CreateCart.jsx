@@ -1,5 +1,5 @@
 import axios from "axios";
-import DisplayCarts from "./DisplayCarts";
+
 import {useEffect, useState} from "react";
 import CartStructure from "./CartStructure";
 
@@ -14,7 +14,8 @@ function CreateCart() {
         useEffect(()=> {getCarts()},[])
                 for (const cart of carts){
                     cartList.push(<CartStructure
-                        id={cart.id} />
+                        id={cart.id}
+                        item={cart.itemId} />
                         
                     )
                 
