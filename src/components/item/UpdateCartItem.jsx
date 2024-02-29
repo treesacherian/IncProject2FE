@@ -15,14 +15,17 @@ function UpdateCartItem() {
     const [items, setItems] = useState([]);
 
 
-    function getCartItems() {
+    function getCartItems(props) {
         axios.get("http://localhost:8080/cart/get/" + params.id)
             .then((response) => { setItems(response.data.items) })
             .catch(console.log())
             console.log( items);
     }
     useEffect(() => { getCartItems() }, [])
-    
+    // for(const item of items){
+
+    }
+   
     return (
         <div>
 

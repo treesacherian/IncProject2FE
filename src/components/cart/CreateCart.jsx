@@ -1,42 +1,50 @@
 import axios from "axios";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import CartStructure from "./CartStructure";
 
 function CreateCart() {
 
     const cartList = []
-        const [carts, setCarts] = useState([]);
-    function getCarts(){
+    const [carts, setCarts] = useState([]);
+    function getCarts() {
         axios.get("http://localhost:8080/cart/get")
-        .then((response) => {setCarts(response.data)})
-        .catch(console.log())}
-        useEffect(()=> {getCarts()},[])
-                for (const cart of carts){
-                    cartList.push(<CartStructure
-                        id={cart.id}
-                        item={cart.itemId} />
-                        
-                    )
-                
-                }
+            .then((response) => { setCarts(response.data) })
+            .catch(console.log())
+    }
+    useEffect(() => { getCarts() }, [])
+    // let disabledStatus = false
+    for (const cart of carts) {
+        //  if (cart.items===null) disabledStatus = true
+        cartList.push(<CartStructure
+            id={cart.id}
+            // item={cart.item.id}
+            // status={disabledStatus}
+            />
+
+        )
+       
+
+
+    }
     function handleclick() {
         axios.post("http://localhost:8080/cart/create")
-            .then(response => {getCarts() })
+            .then(response => { getCarts() })
             .catch(err => console.error(err))
 
-            
+
     }
 
-    
+
 
 
     return (
         <div>
+           
             <button type="button" onClick={handleclick}>Create New Cart</button>
             <h3>Carts</h3>
-           <div> {cartList}
-           </div>
+            <div> {cartList}
+            </div>
         </div>
     );
 }

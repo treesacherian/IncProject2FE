@@ -8,7 +8,6 @@ function CartStructure(props) {
     // const params = useParams();
     // const itemList = []
     // const [items, setItems] = useState([]);
-
     
 
 
@@ -19,7 +18,7 @@ function CartStructure(props) {
 
 
             <button onClick={() => navigate("/item/" + props.id)} >Add Items</button>
-            <button onClick={() => navigate("/cart/get/" + props.id)} >Display Items</button>
+            <button /*disabled={props.status}*/ onClick={() => navigate("/cart/get/" + props.id)} >Display Items</button>
             <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button>
            
 
