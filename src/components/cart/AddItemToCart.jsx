@@ -24,8 +24,8 @@ function AddItemToCart() {
             .catch(err => console.error(err))
     }
     return (
-        <div>
-            <form
+        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
+            <form 
             // onSubmit={e => {
 
             //     e.preventDefault()
@@ -45,11 +45,11 @@ function AddItemToCart() {
             // }
             // }
             >
-                <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#EC97DB"}}>
-                    <div label htmlFor="itemName" className="form-label">Item Name
-                        <input size="50"
+                <div >
+                    <div style={{marginLeft: "10px"}} label htmlFor="itemName" className="form-label">Item Name
+                        <input  size="50"
                             id="itemName"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                             type="text"
                             value={itemName}
                             onChange={e => setItemName(e.target.value)}
@@ -58,10 +58,10 @@ function AddItemToCart() {
 
                     </div>
 
-                    <div label htmlFor="itemPrice" className="form-label">Item Price
+                    <div style={{marginLeft: "10px"}} label htmlFor="itemPrice" className="form-label">Item Price
                         <input size="50"
                             id="itemPrice"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px" }}
                             type="number"
                             value={itemPrice}
                             onChange={e => setItemPrice(e.target.value)}
@@ -70,10 +70,10 @@ function AddItemToCart() {
                     </div>
 
 
-                    <div label htmlFor="itemQuantity" className="form-label">Item Quantity
+                    <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label">Item Quantity
                         <input size="50"
                             id="itemQuantity"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px" }}
                             type="number"
                             value={itemQuantity}
                             onChange={e => setItemQuantity(e.target.value)}
@@ -97,7 +97,7 @@ function AddItemToCart() {
                 {/* <button className="btn btn-primary" type="submit">Submit</button> */}
 
                 </form>
-            <button className="btn btn-primary" type="button" onClick={handleClick}>Submit</button>
+            <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button>
 
 
         </div>

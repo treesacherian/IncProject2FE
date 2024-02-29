@@ -32,10 +32,10 @@ function CreateCart() {
 
 
     return (
-        <div>
-            <button type="button" onClick={handleclick}>Create New Cart</button>
+        <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}>
+            <button  style= {{width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop:"15px"}}type="button" onClick={handleclick}>Create New Cart</button>
             <h3>Carts</h3>
-           <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#ec97db", width: "80%" }}> {cartList}
+           <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}> {cartList}
            </div>
         </div>
     );

@@ -10,7 +10,7 @@ function AddItem() {
     const params = useParams("");
     const navigate = useNavigate();
     return (
-        <div>
+        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
             <form
             onSubmit={e => {
 
@@ -31,10 +31,10 @@ function AddItem() {
             }
             }
             >
-                    <div label htmlFor="itemName" className="form-label">Item Name
+                    <div style={{marginLeft: "28px"}} label htmlFor="itemName" className="form-label">Item Name
                 <input size="50"
                     id="itemName"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
                     type="text"
                     value={itemName}
                     onChange={e => setItemName(e.target.value)}
@@ -43,10 +43,10 @@ function AddItem() {
 
             </div>
 
-            <div label htmlFor="itemPrice" className="form-label">Item Price
+            <div style={{marginLeft: "35px"}} label htmlFor="itemPrice" className="form-label">Item Price
                 <input size="50"
                     id="itemPrice"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                     type="number"
                     value={itemPrice}
                     onChange={e => setItemPrice(e.target.value)}
@@ -55,10 +55,10 @@ function AddItem() {
             </div>
 
 
-            <div label htmlFor="itemQuantity" className="form-label">Item Quantity
+            <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label">Item Quantity
                 <input size="50"
                     id="itemQuantity"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                     type="number"
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
@@ -68,7 +68,7 @@ function AddItem() {
             </div>
 
 
-            <button className="btn btn-primary" type="submit">Submit</button>
+            <button style = {{margin: "5px"}} className="btn btn-primary" type="submit">Submit</button>
 
         </form >
 

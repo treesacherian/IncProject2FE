@@ -12,12 +12,12 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <nav className="navbar align-content-center " style={{display: "flex",  backgroundColor: "#BDA62D",}}>
+      <nav className="navbar align-content-center " style={{display: "flex",  backgroundColor: "#526899",}}>
       <div className="homeimage"></div>
 
-        <Link to ='/'><button type="button" className="btn btn-dark" style={{margin:"10px"}}>Home</button></Link>
-        <Link to = '/cart'><button type="button" className="btn btn-dark" style={{margin:"10px"}}>Cart</button></Link>
-        <Link to='/item'><button type="button" className="btn btn-dark" style={{margin:"10px"}}>Item</button> </Link>
+        <Link to ='/'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Home</button></Link>
+        <Link to = '/cart'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Cart</button></Link>
+        <Link to='/item'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Item</button> </Link>
       </nav>
 
       <Routes>

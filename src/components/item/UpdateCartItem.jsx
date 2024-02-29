@@ -32,7 +32,7 @@ const [id, setId] = useState();
     // }
     
     return (
-        <div>
+        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
 
 
 <form
@@ -83,10 +83,10 @@ const [id, setId] = useState();
             {/* </div> */}
 
 
-            <div label htmlFor="itemQuantity" className="form-label">Item Quantity
+            <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label">Item Quantity
                 <input size="50"
                     id="itemQuantity"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
                     type="number"
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
@@ -96,7 +96,7 @@ const [id, setId] = useState();
             </div>
 
 
-            <button className="btn btn-primary" type="submit">Submit</button>
+            <button className="btn btn-primary" style = {{margin: "5px"}} type="submit">Submit</button>
 
         </form >
 
