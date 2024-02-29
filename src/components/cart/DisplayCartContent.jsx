@@ -45,11 +45,12 @@ function DisplayCartContent() {
     return (
         <div>
             <h3>Cart Contents</h3>
-            <div>
+            <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}>
                 
                 {itemList}
-                <h4>Total to pay:</h4>
+                <h4>Total to pay: £
                 {cartTotal}
+                </h4>
             </div>
 
         </div>

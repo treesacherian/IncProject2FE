@@ -3,9 +3,10 @@ import {useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayCartContent from "../cart/DisplayCartContent";
+import { PropTypes, checkPropTypes } from "prop-types";
 
 
-function UpdateCartItem() {
+function UpdateCartItem(props) {
 
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
@@ -13,21 +14,25 @@ function UpdateCartItem() {
     const params = useParams("");
     const navigate = useNavigate();
     const [items, setItems] = useState([]);
-
+const [id, setId] = useState();
 
     function getCartItems(props) {
         axios.get("http://localhost:8080/cart/get/" + params.id)
             .then((response) => { setItems(response.data.items) })
             .catch(console.log())
             console.log( items);
+            setId({cart: params.id});
     }
     useEffect(() => { getCartItems() }, [])
-    // for(const item of items){
 
-    }
-   
+    // for (const item of items){
+    //     if (item.id === params.id){
+    //         setItemQuantity(item.itemQuantity)
+    //    break }
+    // }
+    
     return (
-        <div>
+        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
 
 
 <form
@@ -35,13 +40,16 @@ function UpdateCartItem() {
 
                 e.preventDefault()
 
-                axios.patch("http://localhost:8080/item/update/"+params.id, { itemName, itemPrice, itemQuantity, cart: params.id })
+                // axios.patch("http://localhost:8080/item/update/"+params.id, { itemName, itemPrice, itemQuantity, cart: params.id })
+                axios.patch("http://localhost:8080/item/update/"+params.id, { itemQuantity})
 
                     .then(response => {
-                        setItemName("");
-                        setItemPrice("");
+                        
                         setItemQuantity("");
-                        // navigate("/cart")
+                        // window.location.reload(DisplayCartContent)
+                        //  navigate("/cart/get/"+id)
+                        navigate(-1);
+                       
 
                     })
 
@@ -50,7 +58,7 @@ function UpdateCartItem() {
             }
             }
             >
-                    <div label htmlFor="itemName" className="form-label">Item Name
+                    {/* <div label htmlFor="itemName" className="form-label">Item Name
                 <input size="50"
                     id="itemName"
                     className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
@@ -71,24 +79,24 @@ function UpdateCartItem() {
                     value={itemPrice}
                     onChange={e => setItemPrice(e.target.value)}
                     
-                />
-            </div>
+                /> */}
+            {/* </div> */}
 
 
-            <div label htmlFor="itemQuantity" className="form-label">Item Quantity
+            <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label">Item Quantity
                 <input size="50"
                     id="itemQuantity"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
+                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
                     type="number"
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
-                    
+                    // placeholder = {itemQuantity}
                 />
 
             </div>
 
 
-            <button className="btn btn-primary" type="submit">Submit</button>
+            <button className="btn btn-primary" style = {{margin: "5px"}} type="submit">Submit</button>
 
         </form >
 
