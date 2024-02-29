@@ -35,7 +35,7 @@ function CreateCart() {
         <div>
             <button type="button" onClick={handleclick}>Create New Cart</button>
             <h3>Carts</h3>
-           <div> {cartList}
+           <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#ec97db", width: "80%" }}> {cartList}
            </div>
         </div>
     );

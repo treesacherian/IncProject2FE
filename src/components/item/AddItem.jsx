@@ -38,7 +38,7 @@ function AddItem() {
                     type="text"
                     value={itemName}
                     onChange={e => setItemName(e.target.value)}
-                    required
+                    
                 />
 
             </div>
@@ -50,7 +50,7 @@ function AddItem() {
                     type="number"
                     value={itemPrice}
                     onChange={e => setItemPrice(e.target.value)}
-                    required
+                    
                 />
             </div>
 
@@ -62,7 +62,7 @@ function AddItem() {
                     type="number"
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
-                    required
+                    contentEditable
                 />
 
             </div>

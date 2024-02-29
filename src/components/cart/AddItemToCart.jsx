@@ -45,7 +45,7 @@ function AddItemToCart() {
             // }
             // }
             >
-                <div>
+                <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#EC97DB"}}>
                     <div label htmlFor="itemName" className="form-label">Item Name
                         <input size="50"
                             id="itemName"
