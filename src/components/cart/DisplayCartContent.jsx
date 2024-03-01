@@ -12,7 +12,8 @@ function DisplayCartContent() {
     const [items, setItems] = useState([]);
     let itemTotal=0;
     let cartTotal=0;
-    const [cartId, setCartId] = useState();
+    
+    // const [cartId, setCartId] = useState();
 
     function getCartItems() {
         axios.get("http://localhost:8080/cart/get/" + params.id)
@@ -20,11 +21,10 @@ function DisplayCartContent() {
             .catch(console.log())
             console.log( items);
     }
-    setCartId(params.id);
-    <ItemStructure cart={cartId}/>
+    
 
     for (const item of items) {
-        itemList.push(<ItemStructure cartid={params.id}
+        itemList.push(<ItemStructure 
             id={item.id}
             name={item.itemName}
             price={item.itemPrice}

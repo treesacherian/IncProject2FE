@@ -14,22 +14,25 @@ function UpdateCartItem(props) {
     const params = useParams("");
     const navigate = useNavigate();
     const [items, setItems] = useState([]);
-const [id, setId] = useState();
+// const [id, setId] = useState();
+let id;
 
-    function getCartItems(props) {
+    function getCartItems() {
         axios.get("http://localhost:8080/cart/get/" + params.id)
-            .then((response) => { setItems(response.data.items) })
+            .then((response) => { setItems(response.data.items); id=response.data.id })
             .catch(console.log())
             console.log( items);
-            setId({cart: params.id});
+            // id=params.id
+            for (const item of items){
+                if (item.id === id){
+                    setItemQuantity(item.itemQuantity)
+                    console.log(itemQuantity);
+               break }
+            }
     }
     useEffect(() => { getCartItems() }, [])
 
-    // for (const item of items){
-    //     if (item.id === params.id){
-    //         setItemQuantity(item.itemQuantity)
-    //    break }
-    // }
+    
     
     return (
         <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
@@ -88,9 +91,12 @@ const [id, setId] = useState();
                     id="itemQuantity"
                     className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
                     type="number"
+                    placeholder="xxx"
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
-                    // placeholder = {itemQuantity}
+                    
+                       
+                    //  {itemQuantity}
                 />
 
             </div>
