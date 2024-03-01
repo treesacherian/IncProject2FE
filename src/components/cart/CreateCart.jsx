@@ -13,20 +13,6 @@ function CreateCart() {
             .catch(console.log())
     }
     useEffect(() => { getCarts() }, [])
-<<<<<<< HEAD
-    // let disabledStatus = false
-    for (const cart of carts) {
-        //  if (cart.items===null) disabledStatus = true
-        cartList.push(<CartStructure
-            id={cart.id}
-            // item={cart.item.id}
-            // status={disabledStatus}
-            />
-
-        )
-       
-
-=======
     for (const cart of carts) {
         cartList.push 
     (<CartStructure
@@ -34,7 +20,6 @@ function CreateCart() {
             item={cart.itemId} />
 
         )
->>>>>>> 7e5a391174598b0edc02c36d206f743ae9aec961
 
     }
     function handleclick() {
