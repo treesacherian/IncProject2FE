@@ -88,4 +88,3 @@ import Shop from "./Shop";
         );
     }
     
-    export default CreateCart;
