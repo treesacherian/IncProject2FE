@@ -7,6 +7,7 @@ import AddItemToCart from './components/cart/AddItemToCart';
 import AddItem from './components/item/AddItem';
 import DisplayCartContent from './components/cart/DisplayCartContent';
 import UpdateCartItem from './components/item/UpdateCartItem';
+import BuyerCart from './components/cart/BuyerCart';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Link to ='/'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Home</button></Link>
         <Link to = '/cart'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Cart</button></Link>
         <Link to='/item'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Item</button> </Link>
+        <Link to='/shopping'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Shopping</button> </Link>
       </nav>
 
       <Routes>
@@ -27,6 +29,7 @@ function App() {
       <Route path='/item' element={<AddItem />} />
       <Route path='/cart/get/:id' element={<DisplayCartContent />} />
       <Route path='/item/update/:id' element={<UpdateCartItem />} />
+      <Route path='/shopping' element={<BuyerCart />} />
       
       
       

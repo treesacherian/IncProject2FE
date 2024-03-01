@@ -10,7 +10,7 @@ function UpdateCartItem(props) {
 
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
-    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemQuantity, setItemQuantity] = useState("");
     const params = useParams("");
     const navigate = useNavigate();
     const [items, setItems] = useState([]);
@@ -45,7 +45,7 @@ const [id, setId] = useState();
 
                     .then(response => {
                         
-                        setItemQuantity("");
+                        setItemQuantity(response.data.itemQuantity);
                         // window.location.reload(DisplayCartContent)
                         //  navigate("/cart/get/"+id)
                         navigate(-1);

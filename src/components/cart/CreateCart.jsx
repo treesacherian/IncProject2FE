@@ -13,6 +13,7 @@ function CreateCart() {
             .catch(console.log())
     }
     useEffect(() => { getCarts() }, [])
+<<<<<<< HEAD
     // let disabledStatus = false
     for (const cart of carts) {
         //  if (cart.items===null) disabledStatus = true
@@ -25,6 +26,15 @@ function CreateCart() {
         )
        
 
+=======
+    for (const cart of carts) {
+        cartList.push 
+    (<CartStructure
+            id={cart.id}
+            item={cart.itemId} />
+
+        )
+>>>>>>> 7e5a391174598b0edc02c36d206f743ae9aec961
 
     }
     function handleclick() {
@@ -41,10 +51,10 @@ function CreateCart() {
     return (
         
         <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}>
-            <button  style= {{width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop:"15px"}}type="button" onClick={handleclick}>Create New Cart</button>
+            <button style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px" }} type="button" onClick={handleclick}>Create New Cart</button>
             <h3>Carts</h3>
-           <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}> {cartList}
-           </div>
+            <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}> {cartList}
+            </div>
         </div>
     );
 }
