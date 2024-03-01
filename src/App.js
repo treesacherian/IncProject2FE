@@ -7,6 +7,7 @@ import AddItemToCart from './components/cart/AddItemToCart';
 import AddItem from './components/item/AddItem';
 import DisplayCartContent from './components/cart/DisplayCartContent';
 import UpdateCartItem from './components/item/UpdateCartItem';
+import Shop from './components/cart/Shop';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path='/item' element={<AddItem />} />
       <Route path='/cart/get/:id' element={<DisplayCartContent />} />
       <Route path='/item/update/:id' element={<UpdateCartItem />} />
+      <Route path='/cart/create' element={<Shop />} />
       
       
       

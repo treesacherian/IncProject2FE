@@ -21,7 +21,7 @@ function CartStructure(props) {
 
     return (
         <div>
-            <h3>Cart:<img style={{width: "15%"}}src={CartLogo}></img> {props.id}</h3>
+            <h3>Cart:<img style={{width: "15%"}}src={CartLogo}></img> {props.id}     Customer: {props.buyer}</h3>
             {/* <p> Item: {props.item}</p> */}
 
             <div>
