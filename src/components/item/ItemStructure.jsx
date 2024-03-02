@@ -17,7 +17,15 @@ function ItemStructure(props) {
     return (
         <div>
             <h5>Items: {props.id}</h5>
+            <table class="table-primary">Item List</table>
+            <tr>
+            <td class="table-primary">{props.name}</td>
+            <td class="table-primary">{props.price}</td>
+            <td class="table-primary">{props.quantity}</td>
+            <td class="table-primary">{itemTotal}</td>
+            
 
+  </tr>
             <div className="row">
             <p className="col"> ITEM ID: {props.id} </p>
             <p className="col"> ITEM NAME: {props.name} </p>

@@ -29,6 +29,7 @@ function CartStructure(props) {
                 <button style={{ width: "200px", height: "40px", margin: "5px",marginBottom: "10px", padding: "5px", paddingBottom: "5px" }} className="btn btn-danger col" onClick={() => navigate("/cart/get/" + props.id)} >Display Items/Update</button>
                 {/* <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button> */}
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { deleteCart() }}>Delete Cart</button>
+                
 
             </div>
 

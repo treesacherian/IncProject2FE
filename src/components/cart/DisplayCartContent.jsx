@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemStructure from "../item/ItemStructure";
 import { useEffect, useState } from "react";
 import CartStructure from "./CartStructure";
+import { useNavigate } from "react-router";
 
 
 
@@ -12,6 +13,7 @@ function DisplayCartContent() {
     const [items, setItems] = useState([]);
     let itemTotal=0;
     let cartTotal=0;
+    const navigate = useNavigate();
     // const [cartId, setCartId] = useState();
 
     function getCartItems() {
@@ -48,6 +50,9 @@ function DisplayCartContent() {
             <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}>
                 
                 {itemList}
+                <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => {navigate("/") }}>Checkout</button>
+                <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { navigate("/")}}>Save For Later</button>
+             
                 <h4>Total to pay: £
                 {cartTotal}
                 </h4>

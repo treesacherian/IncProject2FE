@@ -7,6 +7,7 @@ function AddItem() {
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
     const [itemQuantity, setItemQuantity] = useState(0);
+    const [setCartId, setsetCartId] = useState();
     const params = useParams("");
     const navigate = useNavigate();
     return (
@@ -15,14 +16,18 @@ function AddItem() {
             onSubmit={e => {
 
                 e.preventDefault()
+                setCartId( params.id)
+                
 
                 axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
 
                     .then(response => {
+                        
                         setItemName("");
                         setItemPrice("");
                         setItemQuantity("");
-                        navigate("/cart")
+                        navigate("http://localhost:8080/cart/get/"+ params.id)
+                        
 
                     })
 
