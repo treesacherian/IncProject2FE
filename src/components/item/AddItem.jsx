@@ -84,7 +84,7 @@ function AddItem() {
 
             {/* /************    New code******************** */}
 
-            <DisplayStockItems />
+            {/* <DisplayStockItems /> */}
 
 
             {/* /************    New code******************** */}

@@ -106,7 +106,7 @@ function AddItemToCart() {
 
             </form>
             {/* <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button> */}
-            <DisplayStockItems />
+            {/* <DisplayStockItems /> */}
 
         </div>
     );
