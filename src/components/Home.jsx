@@ -15,22 +15,22 @@ function Home() {
                 {/* <p>CCZone Homepage</p> */}
                 <br />
                 <div >
-                <img className="text-center" style={{ display :"inline-block", width: "10%" }} src={onLine}></img>
-                    {/* <p>The new way to buy<br></br> your groceries from the <br></br>comfort of your Sofa<br></br>
-                                           </p> */}
+                <img className="text-center" style={{ marginLeft:"250px", width: "10%" }} src={onLine}></img>
+                    <p style={{ textAlign:"center", fontFamily:"cursive",color:"green"}}><b>The new way to buy<br></br> your groceries from the <br></br>comfort of your Sofa<br></br>
+                                         </b>  </p>
                 </div>
                 <div>
-                    <img className="text-center" style={{ width: "10%" }} src={lowPrice}></img>
+                    <img className="text-center" style={{marginLeft:"550px", width: "10%" }} src={lowPrice}></img>
                     <p></p>
-                    {/* <p>Price matched against all major supermarkets.</p> */}
+                     <p style={{ textAlign:"center", fontFamily:"cursive",color:"green"}}><b>Price matched against all major supermarkets. </b></p> 
                 </div>
 
                 <div>
-                    <img classNmae="text-center" style={{ width: "10%" }} src={priceMatch}></img>
+                    <img classNmae="text-center" style={{ marginLeft:"750px",width: "10%" }} src={priceMatch}></img>
                     {/* <p>Here to help with the cost of living!</p> */}
                 </div>
                 <div>
-                    <img className="text-center" style={{ width: "10%" }} src={basket}></img>
+                    <img className="text-center" style={{ marginLeft:"400px",width: "10%" }} src={basket}></img>
                 </div>
 
 

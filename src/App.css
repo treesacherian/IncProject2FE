@@ -61,8 +61,8 @@
   background-position: left;
 
 }
-.homeClass{
-  background: url("../src/pictures/homeBackground.jpg");
+body{
+  background: url("../src/pictures/homeBackgroundcopy.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;

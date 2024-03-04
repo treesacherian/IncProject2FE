@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import CreateCart from "./CreateCart";
 import CartLogo from "../../pictures/shoppingCart.webp";
 import userLogo from "../../pictures/user.jpg";
+import 'bootstrap/dist/css/bootstrap.css';
 function CartStructure(props) {
     const navigate = useNavigate();
     // const params = useParams();
@@ -26,28 +27,28 @@ function CartStructure(props) {
             <div className="col"> */}
 
 
-            
-            <div className="d-inline-flex " style={{ maxWidth: "40%", margin: "50px" ,  }}>
-                <div className="card" style={{padding:"5px", display:"inline-block"}}>
-                <div className="card-body" style={{border:"show ",borderColor: "black", }} ></div>
+
+            <div className="d-inline-flex " style={{ maxWidth: "40%", margin: "40px",  }}>
+                <div className="card" /*style={{ padding: "5px", display: "inline-block",}}*/>
+                    <div className="card-body" /*style={{ border: "show ", borderColor: "black",columnCount:"2" }}*/ ></div>
 
 
-                <h3>Cart:<img style={{ width: "5%" }} src={CartLogo}></img> {props.id} <></>    <img style={{ width: "5%" }} src={userLogo}></img> {props.buyer}</h3>
-                {/* <p> Item: {props.item}</p> */}
+                    <h3>Cart:<img style={{ width: "5%" }} src={CartLogo}></img> {props.id} <></>    <img style={{ width: "5%" }} src={userLogo}></img> {props.buyer}</h3>
+                    {/* <p> Item: {props.item}</p> */}
 
-                <div>
-                    <button className="btn btn-success" style={{  marginLeft: "10px",  padding: "5px" }}  onClick={() => navigate("/item/" + props.id)} >Add Items</button>
-                    <button className="btn btn-success" style={{ marginLeft: "10px",  padding: "5px", paddingBottom: "5px" }}  onClick={() => navigate("/cart/get/" + props.id)} >Select</button>
-                    {/* <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button> */}
-                    <button className="btn btn-success" style={{  marginLeft: "10px", padding: "5px" }}  onClick={() => { deleteCart() }}>Delete Cart</button>
+                    <div className="card-text">
+                        <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px" }} onClick={() => navigate("/item/" + props.id)} >Add Items</button>
+                        <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", paddingBottom: "5px" }} onClick={() => navigate("/cart/get/" + props.id)} >Select</button>
+                        {/* <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button> */}
+                        <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px" }} onClick={() => { deleteCart() }}>Delete Cart</button>
+
+                    </div>
 
                 </div>
-                
-                </div>
 
-            {/* </div>
+                {/* </div>
             </div> */}
-        </div>
+            </div>
 
         </div >
     );

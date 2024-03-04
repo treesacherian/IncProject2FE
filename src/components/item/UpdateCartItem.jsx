@@ -17,14 +17,14 @@ function UpdateCartItem(props) {
     const [items, setItems] = useState([]);
 const [id, setId] = useState();
 
-    function getCartItems() {
-        axios.get("http://localhost:8080/cart/get/" + params.id)
-            .then((response) => { setItems(response.data.items) })
-            .catch(console.log())
-            console.log( items);
-            setId({cart: params.id});
-    }
-    useEffect(() => { getCartItems() }, [])
+    // function getCartItems() {
+    //     axios.get("http://localhost:8080/cart/get/" + params.id)
+    //         .then((response) => { setItems(response.data.items) })
+    //         .catch(console.log())
+    //         console.log( items);
+    //         setId({cart: params.id});
+    // }
+    // useEffect(() => { getCartItems() }, [])
 
     // for (const item of items){
     //     if (item.id === params.id){
@@ -42,11 +42,11 @@ const [id, setId] = useState();
                 e.preventDefault()
 
                 // axios.patch("http://localhost:8080/item/update/"+params.id, { itemName, itemPrice, itemQuantity, cart: params.id })
-                axios.patch("http://localhost:8080/item/update/"+id, { itemQuantity})
+                axios.patch("http://localhost:8080/item/update/"+params.id, { itemQuantity, cart: { id: params.id }})
 
                     .then(response => {
                         
-                        setItemQuantity(response.data.itemQuantity);
+                        setItemQuantity("");
                         // window.location.reload(DisplayCartContent)
                         //  navigate("/cart/get/"+id)
                         navigate(-1);
