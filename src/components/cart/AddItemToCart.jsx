@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import DisplayStockItems from "../item/DisplayStockItems";
 function AddItemToCart() {
 
     const [itemName, setItemName] = useState("");
@@ -10,58 +11,65 @@ function AddItemToCart() {
     const params = useParams("");
     const navigate = useNavigate();
 
-    function handleClick() {
-        axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart:{id: params.id} })
+    // function handleClick() {
+    //     axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart:{id: params.id} })
 
-            .then(response => {
-                setItemName("");
-                // setItemPrice("");
-                setItemQuantity("");
-                navigate("/cart")
+    //         .then(response => {
+    //             setItemName("");
+    //             // setItemPrice("");
+    //             setItemQuantity("");
+    //             navigate("/cart")
 
-            })
+    //         })
 
-            .catch(err => console.error(err))
-    }
+    //         .catch(err => console.error(err))
+    // }
     return (
-        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
-            <form 
-            // onSubmit={e => {
+        <div style={{ backgroundColor: "#5dbc4d", padding: "50px" }}>
+            <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
+                onSubmit={e => {
 
-            //     e.preventDefault()
+                    e.preventDefault()
 
-            //     axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
+                    axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: { id: params.id } })
 
-            //         .then(response => {
-            //             setItemName("");
-            //             setItemPrice("");
-            //             setItemQuantity("");
-            //             navigate("/cart")
+                        .then(response => {
+                            setItemName("");
+                            setItemPrice("");
+                            setItemQuantity("");
+                            navigate("/cart/get/" + params.id)
 
-            //         })
+                        })
 
-            //         .catch(err => console.error(err))
+                        .catch(err => console.error(err))
 
-            // }
-            // }
+                }
+                }
             >
                 <div >
-                    <div style={{marginLeft: "10px"}} label htmlFor="itemName" className="form-label">Item Name
-                        <input  size="50"
-                            id="itemName"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
-                            type="text"
-                            value={itemName}
-                            onChange={e => setItemName(e.target.value)}
-                            required
-                        />
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
 
+                            <div style={{ marginLeft: "10px", }} label htmlFor="itemName" className="form-label">Item Name
+                            </div>
+                            <div class="col-auto">
+                                <input size="50"
+                                    id="itemName"
+                                    className="form-control border border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
+                                    type="text"
+                                    value={itemName}
+                                    onChange={e => setItemName(e.target.value)}
+                                    required
+                                />
+
+                            </div>
+                        </div>
                     </div>
 
-                    <div style={{marginLeft: "10px"}} label htmlFor="itemPrice" className="form-label">Item Price
+                    <div style={{ marginLeft: "10px" }} label htmlFor="itemPrice" className="form-label">Item Price
                         <input size="50"
                             id="itemPrice"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px" }}
+                            className="form-control border border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px" }}
                             type="number"
                             value={itemPrice}
                             onChange={e => setItemPrice(e.target.value)}
@@ -70,10 +78,10 @@ function AddItemToCart() {
                     </div>
 
 
-                    <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label">Item Quantity
+                    <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label">Item Quantity
                         <input size="50"
                             id="itemQuantity"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px" }}
+                            className="form-control border border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px" }}
                             type="number"
                             value={itemQuantity}
                             onChange={e => setItemQuantity(e.target.value)}
@@ -91,14 +99,14 @@ function AddItemToCart() {
                             required
                         /> */}
 
-                    </div>
-                
+                </div>
 
-                {/* <button className="btn btn-primary" type="submit">Submit</button> */}
 
-                </form>
-            <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button>
+                <button style={{ margin: "5px", width: "150px" }} className="btn btn-success" type="submit">Submit</button>
 
+            </form>
+            {/* <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button> */}
+            <DisplayStockItems />
 
         </div>
     );

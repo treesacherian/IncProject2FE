@@ -35,7 +35,7 @@ let id;
     
     
     return (
-        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
+        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#5dbc4d"}}>
 
 
 <form
@@ -91,7 +91,7 @@ let id;
                     id="itemQuantity"
                     className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
                     type="number"
-                    placeholder="xxx"
+                    placeholder={itemQuantity}
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
                     

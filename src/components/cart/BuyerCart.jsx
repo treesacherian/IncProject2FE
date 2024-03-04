@@ -10,53 +10,19 @@ function BuyerCart() {
     const cartList = []
     const [carts, setCarts] = useState([]);
     const [cart, setCart] = useState();
-    //  const [cartId, setCartId] = useState(0);
-    // let cartId;
-    // useEffect(() => { }, [])
-    // function getCarts(cartId) {
-    //     axios.get("http://localhost:8080/cart/get")
-    //         .then((response) => {
-    //             setCarts(response.data);
-    //             console.log("carts:", response.data)
-    //         })
-    //         .catch(console.log())
-    //     console.log("cart ID:", cartId);
-
-    //     for (const cart of carts) {
-    //         cartList.push(
-    //             <CartStructure
-    //                 id={cart.id}
-    //             />)
-    //     }
-    //     console.log("cart ID after for loop:", cartId);
-
-    //      for (const cart of cartList){
-    //         // let i=0
-    //         // for (i=1; i<=cartList.length; i++){
-    //         console.log("cart Id in the loop:", cartId);
-    //     if (cart.id === cartId) {
-    //         setCart(cart);
-    //         console.log("cart:", cart);
-
-
-
-    //         break
-
-    //     }
-    // }
-    // }
+    const [buyer, setBuyer] = useState("");
 
 
 
 
     function handleclick() {
-        axios.post("http://localhost:8080/cart/create")
+        axios.post("http://localhost:8080/cart/create", { buyer })
             .then(response => {
 
                 console.log("handleclick:", response.data);
                 setCart(response.data);
                 console.log(response.data);
-                
+
 
                 // console.log(response.data.id)
             })
@@ -72,15 +38,32 @@ function BuyerCart() {
 
 
     return (
-        <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}>
-            <button style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px" }} type="button" onClick={handleclick}>Create New Cart</button>
+
+
+
+        <div style={{ backgroundColor: "#5dbc4d", width: "100%",marginTop:"10px" }}>
+            <div id="cartCreate" className="card-body " style={{ backgroundColor: "#5dbc4d", width: "40%", border: "show ", borderColor: "black" }}></div>
+            <div className="card" style={{ width: "50%"}}>
+            <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label">Customer Name
+                <input size="50"
+                    id="buyer"
+                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
+                    type="text"
+                    value={buyer}
+                    onChange={e => { setBuyer(e.target.value); console.log(e.target.value); }}
+                />
+            </div>
+
+            <button className="btn btn-success" style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px" }} type="button" onClick={handleclick}>Create New Cart</button>
+            </div>
             <h3>Shopping Cart</h3>
-            <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#295821", width: "80%" }}> 
-            {cart && <CartStructure
+            <div class="border border-primary p-2 mb-2 border-4" style={{ backgroundColor: "#5dbc4d", width: "80%" }}>
+                {cart && <CartStructure
                     id={cart.id}
+                    buyer={cart.buyer}
                     items={cart.items}
                 />}
-                
+
             </div>
         </div>
     );

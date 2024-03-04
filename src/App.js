@@ -8,36 +8,53 @@ import AddItem from './components/item/AddItem';
 import DisplayCartContent from './components/cart/DisplayCartContent';
 import UpdateCartItem from './components/item/UpdateCartItem';
 import BuyerCart from './components/cart/BuyerCart';
+import DisplayItems from './components/item/DisplayItems';
+import DisplayStockItems from './components/item/DisplayStockItems';
+import homeLogo from "./pictures/homeLogo.jpg";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-      <nav className="navbar align-content-center " style={{display: "flex",  backgroundColor: "#526899",}}>
-      <div className="homeimage"></div>
+        {/* <nav className="navbar align-content-center " style={{ display: "flex", backgroundColor: "#526899", }}> */}
+       
+          <nav className="navbar align-content-center " style={{ display: "flex", /*backgroundColor: "#5dbc4d", */}}>
+<div>
 
-        <Link to ='/'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Home</button></Link>
-        <Link to = '/cart'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Cart</button></Link>
-        <Link to='/item'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Item</button> </Link>
-        <Link to='/shopping'><button type="button" className="btn btn-dark" style={{margin:"10px", width:"100px", height:"25px"}}>Shopping</button> </Link>
-      </nav>
+            <div className="homeimage"></div>
+            <img class="text-center" style={{ width: "3%" }} src={homeLogo}></img>
+            <Link to='/'><button type="button" className="btn btn-success" style={{ margin: "10px" }}>Home</button></Link>
+            <Link to='/cart'><button type="button" className="btn btn-success" style={{ margin: "10px" }}>Cart</button></Link>
+            <Link to='/item'><button type="button" className="btn btn-success" style={{ margin: "10px" }}>Item</button> </Link>
+            <Link to='/shopping'><button type="button" className="btn btn-success" style={{ margin: "10px" }}>Shopping</button> </Link>
+            </div>
 
-      <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/cart' element={<Cart />} />
-      <Route path='/item/:id' element={<AddItemToCart />} />
-      <Route path='/item' element={<AddItem />} />
-      <Route path='/cart/get/:id' element={<DisplayCartContent />} />
-      <Route path='/item/update/:id' element={<UpdateCartItem />} />
-      <Route path='/shopping' element={<BuyerCart />} />
-      
-      
-      
+          </nav>
+       
+        <div class="border border-primary p-2 mb-2" style={{/* backgroundColor: "#5dbc4d",*/ width: "100%" }}>
+          <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img>
+        </div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/item/:id' element={<AddItemToCart />} />
+          <Route path='/item' element={<AddItem />} />
+
+          <Route path='/cart/get/:id' element={<DisplayCartContent />} />
+          <Route path='/item/update/:id' element={<UpdateCartItem />} />
+          <Route path='/shopping' element={<BuyerCart />} />
+
+          <Route path='/item' element={<DisplayStockItems />} />
 
 
-      </Routes>
-      
-      
+
+
+
+
+        </Routes>
+
+
       </BrowserRouter>
 
 
