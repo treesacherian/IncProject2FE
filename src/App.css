@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+#cartSearch {
+  
+  display: inline-block;
+  
+  
+
+}
+#cartCreate {
+  
+  display: inline-block;
+  padding:20px;
+  margin:50px;
+  /* border:solid; 
+  borderColor:   black; */
+
+}
+.homeimage {
+  /* background: url("../src/pictures/homeLogo.jpg"); */
+  background-size: auto;
+  background-repeat: no-repeat;
+  height: 1vh;
+  background-position: left;
+
+}
+body{
+  background: url("../src/pictures/homeBackgroundcopy.jpg");
+  background-size: contain;
+  height: 112vh;
+  background-repeat: no-repeat;
+  background-position: right;
+}
