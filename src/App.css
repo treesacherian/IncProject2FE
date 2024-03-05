@@ -64,6 +64,7 @@
 body{
   background: url("../src/pictures/homeBackgroundcopy.jpg");
   background-size: contain;
+  height: 112vh;
   background-repeat: no-repeat;
   background-position: right;
 }

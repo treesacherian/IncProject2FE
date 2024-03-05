@@ -49,7 +49,7 @@ function ItemStructure(props) {
     if (!props.quantity) { visiblity = "none"; }
     return (
         <div style={{width:"30%"}}>
-            <h5>Items: {props.id}</h5>
+            <h5><u>Items: {props.id}</u></h5>
 
 
 
@@ -60,6 +60,8 @@ function ItemStructure(props) {
                 <p className="col"> ITEM : {props.name} </p>
                 <p className="col">  PRICE: £{props.price} </p>
                 <p style={{ display: visiblity }} className="col"  >  QUANTITY: {props.quantity} </p>
+                <p style={{ display: visiblity }} className="col"> <strong> Total: £{itemTotal}</strong> </p>
+            
 
                 {/* <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label">Item Quantity
                             <input size="50"
@@ -77,10 +79,10 @@ function ItemStructure(props) {
 
             {/* <button onClick={()=> setQuantity(props.quantity++)}>+</button> */}
 
-            <p style={{ display: visiblity }} className="col">  Total: £{itemTotal} </p>
-            <button className="btn btn-success" style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px" }}  onClick={() => navigate("/item/update/" + props.id)} >Update Quantity</button>
+            
+            <button className="btn btn-success" style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() => navigate("/item/update/" + props.id)} ><strong>Update Quantity</strong></button>
             {/* <button onClick={() => {<UpdateCartItem  id= {props.id}/>}} >Update </button> */}
-            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }}  onClick={() => { deleteItem() }}>Delete</button>
+            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() => { deleteItem() }}><strong>Delete</strong></button>
             {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
         </div>
 
