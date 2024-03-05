@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayCartContent from "../cart/DisplayCartContent";
 import { PropTypes, checkPropTypes } from "prop-types";
-
+import basket from "../../pictures/basket.jpg";
 
 function UpdateCartItem(props) {
 
@@ -33,7 +33,7 @@ const [id, setId] = useState();
     // }
     
     return (
-        <div className="form-control border-3 border-primary rounded" style={{backgroundColor:"#295821"}}>
+        <div  style={{backgroundColor:"#fcc72b", height:"900px"}}>
 
 
 <form
@@ -83,11 +83,11 @@ const [id, setId] = useState();
                 /> */}
             {/* </div> */}
 
-
-            <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label">Item Quantity
+<br></br><br></br>
+            <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label"><h2>Item Quantity:</h2>
                 <input size="50"
                     id="itemQuantity"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
+                    className="form-control border-3 border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
                     type="number"
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
@@ -97,9 +97,11 @@ const [id, setId] = useState();
             </div>
 
 
-            <button className="btn btn-primary" style = {{margin: "5px"}} type="submit">Submit</button>
-
+            <button className="btn btn-success" style = {{margin: "5px",marginLeft:"40px", color:"#fdc1da"}} type="submit"><strong>Submit</strong></button>
+<br></br><br></br>
+<div><img className="text-center" style={{ marginLeft:"40px",width: "10%" }} src={basket}></img></div>
         </form >
+        
 
         </div>
       );

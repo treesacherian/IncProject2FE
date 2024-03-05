@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import DisplayStockItems from "./DisplayItems";
+import DisplayStockItems from "./DisplayStockItems";
 function AddItem() {
 
     const [itemName, setItemName] = useState("");
@@ -12,7 +12,7 @@ function AddItem() {
     const params = useParams("");
     const navigate = useNavigate();
     return (
-        <div /*className="form-control border border-primary rounded"*/ style={{ backgroundColor: "#5dbc4d", padding: "50px" }}>
+        <div style={{ backgroundColor: "#fcc72b", padding: "50px", height:"1800px" }}>
             <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
                 onSubmit={e => {
 
@@ -38,10 +38,10 @@ function AddItem() {
                 }
                 }
             >
-                <div style={{ marginLeft: "28px" }} label htmlFor="itemName" className="form-label">Item Name
+                <div style={{ marginLeft: "28px" }} label htmlFor="itemName" className="form-label"><strong>Item Name</strong>
                     <input size="50"
                         id="itemName"
-                        className="form-control border border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
+                        className="form-control border border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
                         type="text"
                         value={itemName}
                         onChange={e => setItemName(e.target.value)}
@@ -50,10 +50,10 @@ function AddItem() {
 
                 </div>
 
-                <div style={{ marginLeft: "35px" }} label htmlFor="itemPrice" className="form-label">Item Price
+                <div style={{ marginLeft: "35px" }} label htmlFor="itemPrice" className="form-label"><strong>Item Price</strong>
                     <input size="50"
                         id="itemPrice"
-                        className="form-control border border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
+                        className="form-control border border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="number"
                         value={itemPrice}
                         onChange={e => setItemPrice(e.target.value)}
@@ -62,10 +62,10 @@ function AddItem() {
                 </div>
 
 
-                <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label">Item Quantity
+                <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
                     <input size="50"
                         id="itemQuantity"
-                        className="form-control border border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
+                        className="form-control border border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="number"
                         value={itemQuantity}
                         onChange={e => setItemQuantity(e.target.value)}
@@ -75,7 +75,7 @@ function AddItem() {
                 </div>
 
 
-                <button style={{ margin: "5px", width: "150px" }} className="btn btn-success" type="submit">Submit</button>
+                <button style={{ margin: "5px", width: "150px", color:"#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
 
 
 
@@ -84,7 +84,7 @@ function AddItem() {
 
             {/* /************    New code******************** */}
 
-            {/* <DisplayStockItems /> */}
+            <DisplayStockItems />
 
 
             {/* /************    New code******************** */}

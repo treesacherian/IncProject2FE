@@ -43,12 +43,14 @@ function CreateCart() {
 
 
     function handleclick() {
+        if (!buyer) alert("Please enter customer name")
+        else
 
-        axios.post("http://localhost:8080/cart/create", { buyer })
+        {axios.post("http://localhost:8080/cart/create", { buyer })
             .then(response => { getCarts(); setBuyer(""); console.log(buyer); })
             .catch(err => console.error(err))
 
-
+    }
     }
 
 
@@ -56,20 +58,20 @@ function CreateCart() {
 
 
     return (
-        <div className="border border-primary p-2 mb-2 " style={{ backgroundColor: "#5dbc4d", width: "100%" }}>
+        <div  style={{ backgroundColor: "#fcc72b", width: "100%" }}>
 
 
-            <div id="cartCreate" className="card-body " style={{ backgroundColor: "#5dbc4d", width: "40%", border: "show ", borderColor: "black" }}>
-                <div className="card">
-                    <div style={{ marginLeft: "28px", }} label htmlFor="buyer" className="form-label">Customer Name
+            <div id="cartCreate" className="card-body " style={{  width: "40%", border: "show ", borderColor: "black"}}>
+                <div className="card" >
+                    <div style={{ marginLeft: "28px", }} label htmlFor="buyer" className="form-label"><strong>Customer Name</strong>
                         <input size="50"
                             id="buyer"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px", display: "inline" }}
+                            className="form-control border-3 border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px", display: "inline" }}
                             type="text"
                             value={buyer}
                             onChange={e => { setBuyer(e.target.value); console.log(e.target.value); }}
                         />
-                        <button className="btn btn-success" style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px" }} type="button" onClick={handleclick}>Create New Cart</button>
+                        <button className="btn btn-success" style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px", color: "#fdc1da" }} type="button" onClick={handleclick}><strong>Create New Cart</strong></button>
                     </div>
                 </div>
             </div>
@@ -79,12 +81,12 @@ function CreateCart() {
 
             {/* ************************************************ */}
 
-            <div id="cartSearch" className="card-body" style={{ backgroundColor: "#5dbc4d", width: "20%", padding: "20px", border: "show ", borderColor: "black" }}>
+            <div id="cartSearch" className="card-body" style={{ width: "20%", padding: "20px", border: "show ", borderColor: "black" }}>
             <div className="card">
-                <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label">Cart Search
+                <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label"><strong>Cart Search</strong>
                     <input size="50"
                         id="filter"
-                        className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
+                        className="form-control border-3 border-success" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
                         type="text"
                         placeholder="Enter customer name"
                         value={filter}
@@ -102,8 +104,8 @@ function CreateCart() {
 
 
             {/* <button style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px" }} type="button" onClick={handleShop}>Shop</button> */}
-            <h3>Carts</h3>
-            <div className="border border-primary p-2 mb-2 " style={{ backgroundColor: "#5dbc4d", width: "80%" }}> {cartList}
+            <h3 style={{marginLeft:"10px"}}><u>List of Carts</u></h3>
+            <div  style={{  width: "80%" }}> {cartList}
             </div>
         </div>
     );
