@@ -4,6 +4,7 @@ import ItemStructure from "../item/ItemStructure";
 import { useEffect, useState } from "react";
 import CartStructure from "./CartStructure";
 import { useNavigate } from "react-router";
+import UpdateCartItem from "../item/UpdateCartItem";
 
 
 
@@ -28,6 +29,7 @@ function DisplayCartContent() {
     }
     // setCartId(params.id);
     // <ItemStructure cart={cartId}/>
+    
 
     for (const item of items) {
         itemList.push(<ItemStructure

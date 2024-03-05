@@ -28,9 +28,9 @@ function CartStructure(props) {
 
 
 
-            <div className="d-inline-flex " style={{ maxWidth: "40%", margin: "40px",  }}>
-                <div className="card" /*style={{ padding: "5px", display: "inline-block",}}*/>
-                    <div className="card-body" /*style={{ border: "show ", borderColor: "black",columnCount:"2" }}*/ ></div>
+            <div  style={{ maxWidth: "40%", margin: "40px",  }}>
+                <div  /*style={{ padding: "5px", display: "inline-block",}}*/>
+                    <div className="col-lg-2 col-sm-6" /*style={{ border: "show ", borderColor: "black",columnCount:"2" }}*/ ></div>
 
 
                     <h3>Cart:<img style={{ width: "5%" }} src={CartLogo}></img> {props.id} <></>    <img style={{ width: "5%" }} src={userLogo}></img> {props.buyer}</h3>
