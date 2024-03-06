@@ -80,7 +80,7 @@ function ItemStructure(props) {
             {/* <button onClick={()=> setQuantity(props.quantity++)}>+</button> */}
 
             
-            <button className="btn btn-success" style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() => navigate("/item/update/" + props.id)} ><strong>Update Quantity</strong></button>
+            <button className="btn btn-success" style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() =>/*<UpdateCartItem qty={props.quantity}/> */navigate("/item/update/" + props.id)} ><strong>Update Quantity</strong></button>
             {/* <button onClick={() => {<UpdateCartItem  id= {props.id}/>}} >Update </button> */}
             <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() => { deleteItem() }}><strong>Delete</strong></button>
             {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}

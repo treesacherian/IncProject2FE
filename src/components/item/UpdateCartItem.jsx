@@ -89,9 +89,10 @@ const [id, setId] = useState();
                     id="itemQuantity"
                     className="form-control border-3 border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "30px", marginTop: "30px" }}
                     type="number"
+                    // placeholder = {props.qty}
                     value={itemQuantity}
                     onChange={e => setItemQuantity(e.target.value)}
-                    // placeholder = {itemQuantity}
+                    
                 />
 
             </div>
