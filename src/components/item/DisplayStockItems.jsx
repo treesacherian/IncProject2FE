@@ -33,6 +33,7 @@ function DisplayStockItems() {
         )
     }
 
+
     useEffect(() => { getItems() }, [])
 
     return (

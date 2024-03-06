@@ -29,20 +29,20 @@ function CartStructure(props) {
            
 
 
-            <div className="d-inline-flex " style={{ maxWidth: "40%", margin: "40px"  }}>
-            <div class="container"> 
-            <div class="row">
+            <div className="d-inline-flex " style={{ maxWidth: "70%", margin: "40px"  }}>
+            {/* <div class="container"> 
+            <div class="row"> */}
             
 
-                <div className="card" /*style={{ padding: "5px", display: "inline-block",}}*/>
-                    <div className="card-body" /*style={{ border: "show ", borderColor: "black",columnCount:"2" }}*/ ></div>
+                 <div className="card" > 
+                    <div className="card-body"  ></div> 
 
 
-                    <h3 style={{marginLeft:"10px"}}>Cart:<img style={{ width: "5%" }} src={CartLogo}></img> {props.id} <></>   &nbsp; <img style={{ width: "5%" }} src={userLogo}></img> {props.buyer}</h3>
+                    <h3 style={{marginLeft:"10px"}}>Cart: {props.id}<></> <img style={{ width: "7%" }} src={CartLogo}></img> <p className="numberCircle" style={{display:"inline"}}>{props.itemCount}</p>  <></>   &nbsp; <img style={{ width: "5%" }} src={userLogo}></img> {props.buyer}</h3>
                     {/* <p> Item: {props.item}</p> */}
 
                     <div className="card-text" style={{ padding:"10px"}}>
-                        <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
+                        <button id="btn-addItem" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
                         <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", paddingBottom: "5px", color: "#fdc1da" }} onClick={() => navigate("/cart/get/" + props.id)} ><strong>Select</strong></button>
                         {/* <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button> */}
                         <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteCart() }}><strong>Delete Cart</strong></button>
@@ -51,10 +51,10 @@ function CartStructure(props) {
                    
                
                 </div>
-                </div>
+                {/* </div> */}
              </div>
             
-            </div>
+            {/* </div> */}
 
         </div >
     );

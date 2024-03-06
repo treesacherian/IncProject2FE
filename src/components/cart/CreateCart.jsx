@@ -12,11 +12,12 @@ function CreateCart() {
     const [cart, setCart] = useState("{}");
     const [buyer, setBuyer] = useState("");
     const [filter, setFilter] = useState("");
+    let count = 0;
 
 
     function getCarts() {
         axios.get("http://localhost:8080/cart/get")
-            .then((response) => { setCarts(response.data) })
+            .then((response) => { setCarts(response.data); })
             .catch(console.log())
     }
     useEffect(() => { getCarts() }, [])
@@ -27,11 +28,11 @@ function CreateCart() {
         // *******************
         if (filter && !cart.buyer.toLowerCase().includes(filter.toLowerCase())) continue;
         //    *************************
-
-
+        count = (cart.items.length);
         cartList.push(<CartStructure
             id={cart.id}
             buyer={cart.buyer}
+            itemCount={count} 
 
         />
 
@@ -44,13 +45,12 @@ function CreateCart() {
 
     function handleclick() {
         if (!buyer) alert("Please enter customer name")
-        else
+        else {
+            axios.post("http://localhost:8080/cart/create", { buyer })
+                .then(response => { getCarts(); setBuyer(""); console.log(buyer); })
+                .catch(err => console.error(err))
 
-        {axios.post("http://localhost:8080/cart/create", { buyer })
-            .then(response => { getCarts(); setBuyer(""); console.log(buyer); })
-            .catch(err => console.error(err))
-
-    }
+        }
     }
 
 
@@ -58,10 +58,10 @@ function CreateCart() {
 
 
     return (
-        <div  style={{ backgroundColor: "#fcc72b", width: "100%" }}>
+        <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
 
 
-            <div id="cartCreate" className="card-body " style={{  width: "40%", border: "show ", borderColor: "black"}}>
+            <div id="cartCreate" className="card-body " style={{ width: "40%", border: "show ", borderColor: "black" }}>
                 <div className="card" >
                     <div style={{ marginLeft: "28px", }} label htmlFor="buyer" className="form-label"><strong>Customer Name</strong>
                         <input size="50"
@@ -82,20 +82,21 @@ function CreateCart() {
             {/* ************************************************ */}
 
             <div id="cartSearch" className="card-body" style={{ width: "20%", padding: "20px", border: "show ", borderColor: "black" }}>
-            <div className="card">
-                <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label"><strong>Cart Search</strong>
-                    <input size="50"
-                        id="filter"
-                        className="form-control border-3 border-success" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
-                        type="text"
-                        placeholder="Enter customer name"
-                        value={filter}
-                        onChange={e => { setFilter(e.target.value); console.log(e.target.value); }}
-                    />
-                </div>
+                <div className="card">
+                    <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label"><strong>Cart Search</strong>
+                        <input size="50"
+                            id="filter"
+                            className="form-control border-3 border-success" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
+                            type="text"
+                            placeholder="Enter customer name"
+                            value={filter}
+                            onChange={e => { setFilter(e.target.value); console.log(e.target.value); }}
+                        />
+                    </div>
                 </div>
 
             </div>
+           
 
             {/* ******************************************************** */}
 
@@ -104,8 +105,11 @@ function CreateCart() {
 
 
             {/* <button style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px" }} type="button" onClick={handleShop}>Shop</button> */}
-            <h3 style={{marginLeft:"10px"}}><u>List of Carts</u></h3>
-            <div  style={{  width: "80%" }}> {cartList}
+
+            <h3 style={{ marginLeft: "10px" }}><u>List of Carts</u></h3>
+            <div style={{ columnCount: "2" }}>
+                <div style={{ width: "80%" }}> {cartList}
+                </div>
             </div>
         </div>
     );

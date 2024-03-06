@@ -30,6 +30,7 @@ function DisplayCartContent() {
     }
     // setCartId(params.id);
     // <ItemStructure cart={cartId}/>
+    
 
     for (const item of items) {
         itemList.push(<ItemStructure
