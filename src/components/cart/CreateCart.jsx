@@ -58,7 +58,7 @@ function CreateCart() {
 
 
     return (
-        <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
+        <div style={{ backgroundColor: "#fcc72b", width: "100%", height:"1000px" }}>
 
 
             <div id="cartCreate" className="card-body " style={{ width: "40%", border: "show ", borderColor: "black" }}>

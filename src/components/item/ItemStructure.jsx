@@ -60,7 +60,7 @@ function ItemStructure(props) {
                 <p className="col"> ITEM : {props.name} </p>
                 <p className="col">  PRICE: £{props.price} </p>
                 <p style={{ display: visiblity }} className="col"  >  QUANTITY: {props.quantity} </p>
-                <p style={{ display: visiblity }} className="col"> <strong> Total: £{itemTotal}</strong> </p>
+                <p style={{ display: visiblity }} className="col"> <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
             
 
                 {/* <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label">Item Quantity

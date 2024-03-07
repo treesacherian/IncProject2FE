@@ -12,7 +12,7 @@ function AddItem() {
     const params = useParams("");
     const navigate = useNavigate();
     return (
-        <div style={{ backgroundColor: "#fcc72b", padding: "50px", height:"1800px" }}>
+        <div style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }}>
             <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
                 onSubmit={e => {
 
@@ -28,8 +28,8 @@ function AddItem() {
                             setItemPrice("");
                             setItemQuantity("");
                             // navigate("http://localhost:8080/cart/get/" + params.id)
-                            navigate(-1)
-
+                            // navigate(-1)
+                            window.location.reload();
 
                         })
 
@@ -75,7 +75,7 @@ function AddItem() {
                 </div>
 
 
-                <button id="itemSubmit"style={{ margin: "5px", width: "150px", color:"#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
+                <button id="itemSubmit" style={{ margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
 
 
 

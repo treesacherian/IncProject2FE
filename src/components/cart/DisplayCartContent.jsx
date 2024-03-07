@@ -65,7 +65,7 @@ function DisplayCartContent() {
                 <br></br><br></br><br></br>
                 <div className="card" style={{ Width: "10%", backgroundColor: "#fdc1da", float: "right", marginRight: "5px", padding: "10px" }}>
                     <h4 >Total to pay: £
-                        {cartTotal}
+                        {cartTotal.toFixed(2)}
                     </h4>
                 </div>
                 <div style={{marginLeft:"10px"}}>
@@ -75,7 +75,7 @@ function DisplayCartContent() {
                     <br></br>
                     <div className="card" style={{ Width: "30%", backgroundColor:"#fdc1da" }}>
                         <h4 style={{ position: "right" }}>Total to pay: £
-                            {cartTotal}
+                            {cartTotal.toFixed(2)}
                         </h4>
                     </div>
                 </div>
