@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import axios from "axios";
 import UpdateCartItem from "./UpdateCartItem";
 import { isVisible } from "@testing-library/user-event/dist/utils";
@@ -14,12 +14,23 @@ function ItemStructure(props) {
     const params = useParams("");
     let itemTotal = props.price * props.quantity
     let visiblity = false;
+    const [carts, setCarts] = useState([]);
+    const [selectedCart, setSelectedCart] = useState("");
 
 
     function deleteItem() {
         axios.delete("http://localhost:8080/item/delete/" + props.id)
         window.location.reload()
     }
+
+    // function getCarts() {
+    //     axios.get("http://localhost:8080/cart/get")
+    //     .then((response) => {
+    //       setCarts(response.data);
+    //     });
+    //   }
+    //   useEffect(getCarts, []);
+
     // function addToBasket(e) {
     //     // console.log("event.target:", e.target.value);
     //     axios.get("http://localhost:8080/item/get/" + props.id)
@@ -83,6 +94,18 @@ function ItemStructure(props) {
             <button className="btn btn-success" style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() =>/*<UpdateCartItem qty={props.quantity}/> */navigate("/item/update/" + props.id)} ><strong>Update Quantity</strong></button>
             {/* <button onClick={() => {<UpdateCartItem  id= {props.id}/>}} >Update </button> */}
             <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() => { deleteItem() }}><strong>Delete</strong></button>
+            {/* <label htmlFor="cart">Cart</label>
+            <select
+                id="cart"
+                className="form-control"
+                value={selectedCart}
+                onChange={(e) => setSelectedCart(e.target.value)}
+            >
+                <option value="">Select Cart</option>
+                {carts.map((cart) => (
+                    <option key={cart.id} value={cart.id}>{cart.buyer}</option>
+                ))}
+            </select> */}
             {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
         </div>
 
