@@ -12,6 +12,8 @@ function CartStructure(props) {
     // const params = useParams();
     // const itemList = []
     // const [items, setItems] = useState([]);
+    let disabledStatus=true;
+    if (!props.itemCount) disabledStatus=false;
 
     function deleteCart() {
         axios.delete("http://localhost:8080/cart/delete/" + props.id);
@@ -45,7 +47,7 @@ function CartStructure(props) {
                         <button id="btn-addItem" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
                         <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", paddingBottom: "5px", color: "#fdc1da" }} onClick={() => navigate("/cart/get/" + props.id)} ><strong>Select</strong></button>
                         {/* <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button> */}
-                        <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteCart() }}><strong>Delete Cart</strong></button>
+                        <button disabled={disabledStatus} className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteCart() }}><strong>Delete Cart</strong></button>
 
                     </div>
                    
