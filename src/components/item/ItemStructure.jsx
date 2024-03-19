@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { useNavigate } from "react-router";
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import UpdateCartItem from "./UpdateCartItem";
 import { isVisible } from "@testing-library/user-event/dist/utils";
@@ -9,18 +9,27 @@ import { useParams } from "react-router-dom";
 
 function ItemStructure(props) {
     const navigate = useNavigate();
-    const [itemQuantity, setItemQuantity] = useState();
-    const [item, setItem] = useState();
+    const [itemQuantity, setItemQuantity] = useState(props.quantity);
     const params = useParams("");
-    let itemTotal = props.price * props.quantity
+    const [itemTotal, setItemTotal] = useState(props.price * props.quantity);
+    // let itemTotal = props.price * props.quantity
     let visiblity = false;
-    const [carts, setCarts] = useState([]);
-    const [selectedCart, setSelectedCart] = useState("");
+
 
 
     function deleteItem() {
         axios.delete("http://localhost:8080/item/delete/" + props.id)
-        window.location.reload()
+        // window.location.reload()
+        alert(props.name + " deleted");
+        props.getCartItems();
+    }
+
+    function updateQuantity() {
+        axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
+        setItemTotal(props.price * itemQuantity);
+        alert("Quantity updated");
+        props.getCartItems();
+
     }
 
     // function getCarts() {
@@ -56,56 +65,45 @@ function ItemStructure(props) {
     // }
 
 
-
     if (!props.quantity) { visiblity = "none"; }
     return (
-        <div style={{width:"30%"}}>
+        <div style={{ width: "30%" }}>
             <h5><u>Items: {props.id}</u></h5>
 
 
 
 
 
-            <div className="card" style={{Width:"30%"}}>
+            <div className="card" style={{ Width: "20%" }}>
                 <p className="col">  ID: {props.id} </p>
                 <p className="col"> ITEM : {props.name} </p>
                 <p className="col">  PRICE: £{props.price} </p>
-                <p style={{ display: visiblity }} className="col"  >  QUANTITY: {props.quantity} </p>
-                <p style={{ display: visiblity }} className="col"> <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
-            
-
-                {/* <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label">Item Quantity
-                            <input size="50"
-                                id="itemQuantity"
-                                className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
-                                type="number"
-                                value={itemQuantity}
-                                onChange={e => setItemQuantity(e.target.value)}
-                                contentEditable
-                            />
-                        </div> */}
+                <div style={{ display: "inline-block" }}>
+                    <p style={{ display: visiblity }} className="col"  >  QUANTITY: {itemQuantity} </p>
+                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
+                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
+                </div>
+                <p style={{ display: visiblity }} className="col" > <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
             </div>
 
 
 
-            {/* <button onClick={()=> setQuantity(props.quantity++)}>+</button> */}
 
-            
-            <button className="btn btn-success" style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() =>/*<UpdateCartItem qty={props.quantity}/> */navigate("/item/update/" + props.id)} ><strong>Update Quantity</strong></button>
-            {/* <button onClick={() => {<UpdateCartItem  id= {props.id}/>}} >Update </button> */}
-            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px",color:"#fdc1da" }}  onClick={() => { deleteItem() }}><strong>Delete</strong></button>
-            {/* <label htmlFor="cart">Cart</label>
-            <select
-                id="cart"
-                className="form-control"
-                value={selectedCart}
-                onChange={(e) => setSelectedCart(e.target.value)}
+
+
+            <button
+                className="btn btn-success"
+                style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }}
+                onClick={() => {
+                    updateQuantity();
+                }
+
+                }
             >
-                <option value="">Select Cart</option>
-                {carts.map((cart) => (
-                    <option key={cart.id} value={cart.id}>{cart.buyer}</option>
-                ))}
-            </select> */}
+                <strong>Update Quantity</strong>
+            </button>
+
+            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteItem() }}><strong>Delete</strong></button>
             {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
         </div>
 
