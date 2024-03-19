@@ -48,7 +48,7 @@ function App() {
           <Route path='/item/update/:id' element={<UpdateCartItem />} />
           <Route path='/shopping' element={<BuyerCart />} />
 
-          <Route path='/item' element={<DisplayStockItems />} />
+          <Route path='/item' element={<DisplayItems />} />
 
 
 

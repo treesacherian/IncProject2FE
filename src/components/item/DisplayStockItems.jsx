@@ -1,48 +1,48 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import ItemStructure from "./ItemStructure";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import ItemStructure from "./ItemStructure";
 
 
-function DisplayStockItems() {
-    const [items, setItems] = useState([]);
-    const itemList = [];
+// function DisplayStockItems() {
+//     const [items, setItems] = useState([]);
+//     const itemList = [];
 
 
-    function getItems() {
-        axios.get("http://localhost:8080/item/get")
+//     function getItems() {
+//         axios.get("http://localhost:8080/item/get")
 
-            .then((response) => {
-                setItems(response.data);
-                console.log("response.data: ", response.data);
-            })
+//             .then((response) => {
+//                 setItems(response.data);
+//                 console.log("response.data: ", response.data);
+//             })
 
-            .catch(console.log())
-        console.log("items1: ", items);
-    }
-
-
-    for (const item of items) {
-
-        itemList.push(<ItemStructure
-            id={item.id}
-            name={item.itemName}
-            price={item.itemPrice}
-
-        />
-
-        )
-    }
+//             .catch(console.log())
+//         console.log("items1: ", items);
+//     }
 
 
-    useEffect(() => { getItems() }, [])
+//     for (const item of items) {
 
-    return (
-        <div>
-            <div  style={{ backgroundColor: "#fcc72b", width: "80%" }}>
-                {itemList}
-            </div>
-        </div>
-    );
-}
+//         itemList.push(<ItemStructure
+//             id={item.id}
+//             name={item.itemName}
+//             price={item.itemPrice}
 
-export default DisplayStockItems;
+//         />
+
+//         )
+//     }
+
+
+//     useEffect(() => { getItems() }, [])
+
+//     return (
+//         <div>
+//             <div  style={{ backgroundColor: "#fcc72b", width: "80%" }}>
+//                 {itemList}
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default DisplayStockItems;
