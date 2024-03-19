@@ -50,7 +50,7 @@ function App() {
           <Route path='/shopping' element={<BuyerCart />} />
 
           <Route path='/item' element={<DisplayStockItems />} />
-          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/checkout/:id' element={<Checkout />} />
 
 
 
