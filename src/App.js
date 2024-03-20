@@ -11,9 +11,27 @@ import BuyerCart from './components/cart/BuyerCart';
 import DisplayItems from './components/item/DisplayItems';
 import DisplayStockItems from './components/item/DisplayStockItems';
 import homeLogo from "./pictures/homeLogo.jpg";
+import CustomerLogin from "./components/cart/CustomerLogin"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState, useEffect} from "react";
+import axios from "axios";
+import CustomerRegistration from "./components/cart/CustomerRegistration"
 
 function App() {
+
+const [carts, setCarts] = useState([]);
+
+
+/*************code added on 19/03 */
+  function getCarts() {
+    axios.get("http://localhost:8080/cart/get")
+      .then((response) => { setCarts(response.data); })
+      .catch(console.log())
+  }
+  useEffect(() => { getCarts() }, [])
+
+/************************************** */
+
   return (
     <body>
       <div>
@@ -39,22 +57,25 @@ function App() {
             {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
           </div>
           <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/item/:id' element={<AddItemToCart />} />
-          <Route path='/item' element={<AddItem />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/item/:id' element={<AddItemToCart />} />
+            <Route path='/item' element={<AddItem />} />
 
-          <Route path='/cart/get/:id' element={<DisplayCartContent />} />
-          <Route path='/item/update/:id' element={<UpdateCartItem />} />
-          <Route path='/shopping' element={<BuyerCart />} />
+            <Route path='/cart/get/:id' element={<DisplayCartContent />} />
+            <Route path='/item/update/:id' element={<UpdateCartItem />} />
+            {/* <Route path='/shopping' element={<BuyerCart />} /> */}
+            <Route path='/shopping' element={<CustomerLogin carts={carts} />} />
 
-          <Route path='/item' element={<DisplayItems />} />
+            <Route path='/item' element={<DisplayItems />} />
+            
+            <Route path='/cart/create' element={<CustomerRegistration/>}/>
 
 
 
 
 
-            </Routes>
+          </Routes>
 
 
         </BrowserRouter>
