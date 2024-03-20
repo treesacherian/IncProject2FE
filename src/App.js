@@ -65,7 +65,8 @@ const [carts, setCarts] = useState([]);
             <Route path='/cart/get/:id' element={<DisplayCartContent />} />
             <Route path='/item/update/:id' element={<UpdateCartItem />} />
             {/* <Route path='/shopping' element={<BuyerCart />} /> */}
-            <Route path='/shopping' element={<CustomerLogin carts={carts} />} />
+            <Route path='/shopping' element={<CustomerLogin carts={carts}  getCarts={getCarts} />} />
+            {/* <Route path='/shopping' element={<CustomerLogin getCarts={getCarts} />} /> */}
 
             <Route path='/item' element={<DisplayItems />} />
             
