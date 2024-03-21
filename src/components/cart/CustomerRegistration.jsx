@@ -25,36 +25,6 @@ function CustomerRegistration(props) {
         console.log("Existing carts: ", props.carts);
         for (const cart of props.carts) {
             if (cart.userId === userId) {
-<<<<<<< HEAD
-
-                alert("user id already teaken, please create a new user id");
-                status = false;
-                break;
-            }
-            else if (cart.buyer === buyer && cart.tel === tel && cart.address === address) {
-                alert("user already exists, please sign in with the right credentials")
-                status = false;
-                navigate('/shopping');
-                break;
-            }
-        }
-
-        if (status == true) {
-
-            axios.post("http://localhost:8080/cart/create", { buyer, address, tel, userId, password })
-
-                .then(response => {
-                    setCart(response.data)
-                    // if (!buyer) visibility = "none";else visibility="inline"
-                    // console.log("buyer, vis:",buyer, visibility);
-                    setBuyer("");
-                    setTel("");
-                    setAddress("");
-                    setUserId("");
-                    setPassword("");
-                    visibility = "none";
-=======
->>>>>>> 0375d6f1fd871cce1938948eaf9cb91f826bdeee
 
                 alert("user id already teaken, please create a new user id");
                 status = false;
@@ -72,11 +42,8 @@ function CustomerRegistration(props) {
 
 
 
-                    // navigate('/shopping');
+        axios.post("http://localhost:8080/cart/create", { buyer, address, tel, userId, password })
 
-<<<<<<< HEAD
-                    // getItems();
-=======
 
                 .then(response => {
                     setCart(response.data)
@@ -88,14 +55,9 @@ function CustomerRegistration(props) {
                     setUserId("");
                     setPassword("");
                     visibility = "none";
->>>>>>> 0375d6f1fd871cce1938948eaf9cb91f826bdeee
 
-                })
 
-                .catch(err => console.error(err))
 
-<<<<<<< HEAD
-=======
 
                     // navigate('/shopping');
 
@@ -105,7 +67,6 @@ function CustomerRegistration(props) {
 
                 .catch(err => console.error(err))
 
->>>>>>> 0375d6f1fd871cce1938948eaf9cb91f826bdeee
         }
 
     }
