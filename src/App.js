@@ -12,6 +12,7 @@ import DisplayItems from './components/item/DisplayItems';
 import DisplayStockItems from './components/item/DisplayStockItems';
 import homeLogo from "./pictures/homeLogo.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path='/shopping' element={<BuyerCart />} />
 
           <Route path='/item' element={<DisplayStockItems />} />
+          <Route path='/checkout/:id' element={<Checkout />} />
 
 
 

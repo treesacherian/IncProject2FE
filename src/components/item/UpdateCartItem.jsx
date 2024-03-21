@@ -17,6 +17,14 @@ function UpdateCartItem(props) {
     const [items, setItems] = useState([]);
 const [id, setId] = useState();
 
+useEffect(() => {
+    axios.get("http://localhost:8080/item/get/" + params.id)
+    .then((res) => {
+        console.log(res);
+        setItemQuantity(res.data.itemQuantity);
+    }).catch(err => console.error(err))
+}, []);
+
     // function getCartItems() {
     //     axios.get("http://localhost:8080/cart/get/" + params.id)
     //         .then((response) => { setItems(response.data.items) })
