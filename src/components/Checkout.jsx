@@ -72,8 +72,8 @@ function Checkout() {
       <Table striped bordered hover>
         <thead>
         <tr>
-            <th colSpan="2">CCZone Customer Invoice</th>
-            <th colSpan="2" style={{ textAlign: 'right' }}>Invoice date: {date}</th>
+            <th colSpan="1">CCZone Customer Invoice</th>
+            <th colSpan="3" style={{ textAlign: 'right' }}>Invoice date: {date}</th>
           </tr>
         <tr>
             <th colSpan="1"><br/>{buyer}<br/>{buyerAddress}<br/>{buyerPhone}<br/><br/></th>
