@@ -16,6 +16,10 @@ function Checkout() {
   const params = useParams();
   const [items, setItems] = useState([]);
   const [buyer, setBuyer] = useState("")
+  const [buyerAddress, setBuyerAddress] = useState("");
+  const [buyerPhone, setBuyerPhone] = useState("");
+  const [userId, setUserId] = useState("");
+
   const itemList = []
   let cartTotal = 0;
 
@@ -28,7 +32,11 @@ function Checkout() {
       .then((response) => {
         setItems(response.data.items)
         setBuyer(response.data.buyer)
+        setBuyerAddress(response.data.address)
+        setBuyerPhone(response.data.tel)
+        setUserId(response.data.userId)
         console.log("response.data.items:", response.data.items);
+        console.log("response.data.buyer:", response.data);
       })
       .catch(console.log())
 
@@ -57,16 +65,22 @@ function Checkout() {
   return (
     <div>
       <br />
-      <h1>Invoice for {buyer}</h1>
+      <h1> Invoice for user - {userId}</h1>
       <br />
 
-
+      <div style={{ width: '98%', margin: '0 auto' }}>
       <Table striped bordered hover>
         <thead>
-          <tr>
+        <tr>
             <th colSpan="2">CCZone Customer Invoice</th>
-            <th colSpan="2">Invoice date: {date}</th>
+            <th colSpan="2" style={{ textAlign: 'right' }}>Invoice date: {date}</th>
           </tr>
+        <tr>
+            <th colSpan="1"><br/>{buyer}<br/>{buyerAddress}<br/>{buyerPhone}<br/><br/></th>
+            <th colSpan="3" ></th>
+          </tr>
+          
+          
           <tr>
             <th>#</th>
             <th>Item</th>
@@ -107,8 +121,9 @@ function Checkout() {
       </Table>
       <br/>
       <button id="btn-print" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da"}}
-      onClick={() => alert("Invoice Printing")}>Print Invoice</button>
+      onClick={() => window.print()}><strong>Print Invoice</strong></button>
       
+    </div>
     </div>
   );
 }
