@@ -23,10 +23,10 @@ import Checkout from './components/Checkout';
 import AdminLogin from './components/AdminLogin'
 import CreateCart from './components/cart/CreateCart'
 
-import {useState, useEffect} from "react";
-import axios from "axios";
-import CustomerRegistration from "./components/cart/CustomerRegistration"
-import CustomerLogin from "./components/cart/CustomerLogin"
+
+
+
+
 
 
 
