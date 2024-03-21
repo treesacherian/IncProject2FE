@@ -145,4 +145,5 @@ CustomerLogin.prototype = {
     getCarts: propTypes.func.isRequired
 }
 
+
 export default CustomerLogin;

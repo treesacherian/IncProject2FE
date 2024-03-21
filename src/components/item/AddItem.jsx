@@ -1,9 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayStockItems from "./DisplayStockItems";
-function AddItem() {
+import DisplayItems from "./DisplayItems";
+import ItemStructure from "./ItemStructure";
+import propTypes from "prop-types";
+
+function AddItem({}) {
 
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
@@ -11,6 +15,36 @@ function AddItem() {
     const [cartId, setCartId] = useState();
     const params = useParams("");
     const navigate = useNavigate();
+    const [items, setItems] = useState([]);
+    const itemList = [];
+    
+    function getItems() {
+        axios.get("http://localhost:8080/item/get")
+        
+            .then((response) => { setItems(response.data);
+            console.log("response.data: ",response.data);
+             })
+             
+            .catch(console.log())
+            console.log("items1: ",items);
+    }
+    useEffect(() => { getItems() }, [])
+   
+    for (const item of items) {
+        
+        itemList.push(<ItemStructure
+            id={item.id}
+         name={item.itemName}
+         price={item.itemPrice}
+         
+        />
+
+        )
+    }
+    
+   
+
+
     return (
         <div style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }}>
             <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
@@ -23,13 +57,12 @@ function AddItem() {
                     axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
 
                         .then(response => {
-
+                            
                             setItemName("");
                             setItemPrice("");
                             setItemQuantity("");
-                            // navigate("http://localhost:8080/cart/get/" + params.id)
-                            // navigate(-1)
-                            window.location.reload();
+                            
+                            getItems();
 
                         })
 
@@ -82,15 +115,24 @@ function AddItem() {
 
             </form >
 
-            {/* /************    New code******************** */}
+           
 
-            <DisplayStockItems />
+            {/* <DisplayItems /> */}
+           <div style={{ columnCount: "2"}}>
+            <div style={{ width:"200%"}}> {itemList}</div>
+          
+
+           </div>
+          
+          
 
 
-            {/* /************    New code******************** */}
+            
 
         </div >
     );
 }
-
+AddItem.propTypes={
+    getItems:propTypes.func.isRequired
+}
 export default AddItem;

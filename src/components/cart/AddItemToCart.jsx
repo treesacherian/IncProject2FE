@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import DisplayStockItems from "../item/DisplayStockItems";
+import DisplayItems from "../item/DisplayItems";
 function AddItemToCart() {
 
     const [itemName, setItemName] = useState("");
@@ -108,7 +108,7 @@ function AddItemToCart() {
             {/* <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button> */}
         <br></br>
          <h3>Current Stock Items</h3>
-            <DisplayStockItems />
+            <DisplayItems />
 
         </div>
     );

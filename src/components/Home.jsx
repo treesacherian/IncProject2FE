@@ -12,7 +12,7 @@ function Home() {
 
 
 
-                {/* <p>CCZone Homepage</p> */}
+              
                 
                 <div >
                     
@@ -28,8 +28,10 @@ function Home() {
                 </div>
 
                 <div>
+
                     <img alt="a gold logo with the words price match" classNmae="text-center" style={{ marginLeft:"830px",width: "10%" }} src={priceMatch}></img>
                     {/* <p>Here to help with the cost of living!</p> */}
+
                 </div>
                 <div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
