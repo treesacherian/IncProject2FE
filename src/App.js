@@ -13,9 +13,13 @@ import DisplayStockItems from './components/item/DisplayStockItems';
 import homeLogo from "./pictures/homeLogo.jpg";
 import CustomerLogin from "./components/cart/CustomerLogin"
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {useState, useEffect} from "react";
 import axios from "axios";
 import CustomerRegistration from "./components/cart/CustomerRegistration"
+
+import Checkout from './components/Checkout';
+
 
 function App() {
 
@@ -68,9 +72,14 @@ const [carts, setCarts] = useState([]);
             <Route path='/shopping' element={<CustomerLogin carts={carts}  getCarts={getCarts} />} />
             {/* <Route path='/shopping' element={<CustomerLogin getCarts={getCarts} />} /> */}
 
+
             <Route path='/item' element={<DisplayItems />} />
             
             <Route path='/cart/create' element={<CustomerRegistration/>}/>
+
+//           <Route path='/item' element={<DisplayStockItems />} />
+          <Route path='/checkout/:id' element={<Checkout />} />
+
 
 
 

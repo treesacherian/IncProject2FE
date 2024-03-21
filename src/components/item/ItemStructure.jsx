@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import UpdateCartItem from "./UpdateCartItem";
 import { isVisible } from "@testing-library/user-event/dist/utils";
@@ -17,12 +17,25 @@ function ItemStructure(props) {
     let visiblity = false;
 
 
+
     function deleteItem() {
         axios.delete("http://localhost:8080/item/delete/" + props.id)
         // window.location.reload()
-        alert(props.name+" deleted");
+
+        alert(props.name + " deleted");
         props.getCartItems();
     }
+
+    function updateQuantity() {
+        axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
+        setItemTotal(props.price * itemQuantity);
+        alert("Quantity updated");
+        props.getCartItems();
+
+    }
+
+    
+
 
     function updateQuantity() {
         axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
@@ -31,7 +44,6 @@ function ItemStructure(props) {
         props.getCartItems();
 
     }
-
 
 
 
@@ -66,7 +78,10 @@ function ItemStructure(props) {
                 style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }}
                 onClick={() => {
                     updateQuantity();
+
                     // navigate("/item/update/" + props.id)
+
+
                 }
 
                 }

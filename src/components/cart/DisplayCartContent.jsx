@@ -38,7 +38,9 @@ function DisplayCartContent() {
             name={item.itemName}
             price={item.itemPrice}
             quantity={item.itemQuantity}
-           getCartItems={getCartItems}
+
+           
+            getCartItems={getCartItems}
 
         />
 
@@ -61,8 +63,10 @@ function DisplayCartContent() {
                 <div style={{backgroundColor:"white", marginLeft:"10px", marginRight:"10px"}}><h3> Contents of Cart :{params.id}&nbsp;&nbsp;<img style={{ width: "3%" }} src={userLogo}></img>{buyer}</h3>
                 </div>
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "left" }} className="btn btn-success" onClick={() => { navigate("/item/" + params.id) }}><strong>Continue Shopping</strong></button>
-                <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate("/") }}><strong>Checkout</strong></button>
-                <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate("/") }}><strong>Save For Later</strong></button>
+
+                <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate("/checkout/" + params.id) }}><strong>Checkout</strong></button>
+                <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate("/"); alert("Cart Saved") }}><strong>Save For Later</strong></button>
+
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate(-1) }}><strong>Back</strong></button>
                 <br></br><br></br><br></br>
                 <div className="card" style={{ Width: "10%", backgroundColor: "#fdc1da", float: "right", marginRight: "5px", padding: "10px" }}>
