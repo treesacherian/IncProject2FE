@@ -16,19 +16,19 @@ function Home() {
                 
                 <div >
                     
-                <img className="text-center" style={{ marginLeft:"830px", width: "10%" }} src={onLine}></img>
+                <img alt="picture of a computer keyboard with a button saying order shopping" className="text-center" style={{ marginLeft:"830px", width: "10%" }} src={onLine}></img>
                     <p style={{ textAlign:"center", fontFamily:"cursive",color:"green"}}><b>The new way to buy<br></br> your groceries from the <br></br>comfort of your Sofa<br></br>
                                          </b>  </p>
                 </div>
                 <div>
-                    <img className="text-center" style={{marginLeft:"550px", width: "10%" }} src={lowPrice}></img>
-                    <img className="text-center" style={{ marginLeft:"400px",width: "10%" }} src={basket}></img>
+                    <img alt="a logo showing the words low everyday prices"  className="text-center" style={{marginLeft:"550px", width: "10%" }} src={lowPrice}></img>
+                    <img alt="a shopping basket full of groceries" className="text-center" style={{ marginLeft:"400px",width: "10%" }} src={basket}></img>
                     <p></p>
                      <p style={{ textAlign:"center", fontFamily:"cursive",color:"green"}}><b>Price matched against all major supermarkets. </b></p> 
                 </div>
 
                 <div>
-                    <img classNmae="text-center" style={{ marginLeft:"830px",width: "10%" }} src={priceMatch}></img>
+                    <img alt="a gold logo with the words price match" classNmae="text-center" style={{ marginLeft:"830px",width: "10%" }} src={priceMatch}></img>
                     {/* <p>Here to help with the cost of living!</p> */}
                 </div>
                 <div>

@@ -13,8 +13,28 @@ import DisplayStockItems from './components/item/DisplayStockItems';
 import homeLogo from "./pictures/homeLogo.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Checkout from './components/Checkout';
+import {useState, useEffect} from "react";
+import axios from "axios";
+import CustomerRegistration from "./components/cart/CustomerRegistration"
+import CustomerLogin from "./components/cart/CustomerLogin"
+
 
 function App() {
+
+  const [carts, setCarts] = useState([]);
+
+
+  /*************code added on 19/03 */
+    function getCarts() {
+      axios.get("http://localhost:8080/cart/get")
+        .then((response) => { setCarts(response.data); })
+        .catch(console.log())
+    }
+    useEffect(() => { getCarts() }, [])
+  
+  /************************************** */
+
+
   return (
     <body>
       <div>
@@ -25,7 +45,7 @@ function App() {
             <div>
 
               <div className="homeimage"></div>
-              <img class="text-center" style={{ width: "10%" }} src={homeLogo}></img>
+              <img class="text-center" style={{ width: "10%" }} src={homeLogo} alt="Image of a shopping trolley with the CCZone logo"></img>
               <Link to='/'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Home</strong></button></Link>
               <Link to='/cart'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Cart</strong></button></Link>
               <Link to='/item'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Item</strong></button> </Link>
@@ -41,21 +61,20 @@ function App() {
           </div>
           <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/item/:id' element={<AddItemToCart />} />
-          <Route path='/item' element={<AddItem />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/item/:id' element={<AddItemToCart />} />
+            <Route path='/item' element={<AddItem />} />
 
-          <Route path='/cart/get/:id' element={<DisplayCartContent />} />
-          <Route path='/item/update/:id' element={<UpdateCartItem />} />
-          <Route path='/shopping' element={<BuyerCart />} />
+            <Route path='/cart/get/:id' element={<DisplayCartContent />} />
+            <Route path='/item/update/:id' element={<UpdateCartItem />} />
+            {/* <Route path='/shopping' element={<BuyerCart />} /> */}
+            <Route path='/shopping' element={<CustomerLogin carts={carts}  getCarts={getCarts} />} />
+            {/* <Route path='/shopping' element={<CustomerLogin getCarts={getCarts} />} /> */}
 
-          <Route path='/item' element={<DisplayStockItems />} />
-          <Route path='/checkout/:id' element={<Checkout />} />
-
-
-
-
-
+            <Route path='/item' element={<DisplayItems />} />
+            
+            <Route path='/cart/create' element={<CustomerRegistration/>}/>
+            <Route path='/checkout/:id' element={<Checkout/>}/>
             </Routes>
 
 
