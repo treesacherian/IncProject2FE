@@ -40,7 +40,10 @@ function CustomerRegistration(props) {
 
         if (status == true) {
 
-            axios.post("http://localhost:8080/cart/create", { buyer, address, tel, userId, password })
+
+
+        axios.post("http://localhost:8080/cart/create", { buyer, address, tel, userId, password })
+
 
                 .then(response => {
                     setCart(response.data)

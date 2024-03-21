@@ -19,8 +19,16 @@ import axios from "axios";
 import CustomerRegistration from "./components/cart/CustomerRegistration"
 
 import Checkout from './components/Checkout';
+
 import AdminLogin from './components/AdminLogin'
 import CreateCart from './components/cart/CreateCart'
+
+import {useState, useEffect} from "react";
+import axios from "axios";
+import CustomerRegistration from "./components/cart/CustomerRegistration"
+import CustomerLogin from "./components/cart/CustomerLogin"
+
+
 
 
 function App() {
@@ -38,6 +46,7 @@ const [carts, setCarts] = useState([]);
 
 /************************************** */
 
+
   return (
     <body>
       <div>
@@ -48,7 +57,7 @@ const [carts, setCarts] = useState([]);
             <div>
 
               <div className="homeimage"></div>
-              <img class="text-center" style={{ width: "10%" }} src={homeLogo}></img>
+              <img class="text-center" style={{ width: "10%" }} src={homeLogo} alt="Image of a shopping trolley with the CCZone logo"></img>
               <Link to='/'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Home</strong></button></Link>
               {/* <Link to='/cart'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Cart</strong></button></Link> */}
               <Link to='/admin'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Cart</strong></button></Link>
@@ -64,7 +73,9 @@ const [carts, setCarts] = useState([]);
             {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
           </div>
           <Routes>
-            <Route path='/' element={<Home />} />
+
+          <Route path='/' element={<Home />} />
+
             <Route path='/cart' element={<Cart />} />
             {/* <Route path='/cart' element={<CreateCart />} /> */}
             <Route path='/item/:id' element={<AddItemToCart />} />
@@ -75,6 +86,7 @@ const [carts, setCarts] = useState([]);
             {/* <Route path='/shopping' element={<BuyerCart />} /> */}
             <Route path='/shopping' element={<CustomerLogin carts={carts}  getCarts={getCarts} />} />
             {/* <Route path='/shopping' element={<CustomerLogin getCarts={getCarts} />} /> */}
+
 
 
             <Route path='/item' element={<DisplayItems />} />
@@ -91,6 +103,7 @@ const [carts, setCarts] = useState([]);
 
 
           </Routes>
+
 
 
         </BrowserRouter>
