@@ -24,7 +24,7 @@ function CustomerRegistration() {
 
 
 
-        
+
         axios.post("http://localhost:8080/cart/create", { buyer, address, tel, userId, password })
 
             .then(response => {
