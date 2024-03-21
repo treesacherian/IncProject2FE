@@ -24,13 +24,13 @@
 //     for (const item of items) {
 
 
-        itemList.push(<ItemStructure
-            id={item.id}
-            name={item.itemName}
-            price={item.itemPrice.toFixed(2)}
+//         itemList.push(<ItemStructure
+//             id={item.id}
+//             name={item.itemName}
+//             price={item.itemPrice.toFixed(2)}
 
 
-//         />
+// //         />
 
 //         )
 //     }
