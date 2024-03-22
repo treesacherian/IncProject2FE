@@ -165,7 +165,11 @@ function CustomerRegistration(props) {
             <div style={{ width: "50%", margin: "20px" }} >
                 {cart && <CartStructure id={cart.id}
                     buyer={cart.buyer}
-                    itemCount={quantity} />
+                    itemCount={quantity}
+                    tel={tel}
+            address={address}
+            userId={userId}
+                    />
                 }
 
             </div>

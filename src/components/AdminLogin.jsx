@@ -69,8 +69,8 @@ function AdminLogin() {
         }
         >
             <Form.Group className="mb-3" controlId="formGroupEmail" >
-                <Form.Label style={{ width: "30%" }}>User Id</Form.Label>
-                <Form.Control type="userId" placeholder="Enter User Id" onChange={e => setAdminId(e.target.value)} />
+                <Form.Label style={{ width: "30%" }}>Admin Id</Form.Label>
+                <Form.Control type="userId" placeholder="Enter Admin User Id" onChange={e => setAdminId(e.target.value)} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupPassword" >
                 <Form.Label style={{ width: "30%" }}>Password</Form.Label>

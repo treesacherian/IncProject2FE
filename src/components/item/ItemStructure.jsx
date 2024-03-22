@@ -37,13 +37,23 @@ function ItemStructure(props) {
     
 
 
-    function updateQuantity() {
-        axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
-        setItemTotal( props.price * itemQuantity);
-        alert("Quantity updated");
-        props.getCartItems();
+    // function updateQuantity() {
+    //     axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
+    //     setItemTotal( props.price * itemQuantity);
+    //     alert("Quantity updated");
+    //     props.getCartItems();
 
-    }
+    // }
+
+
+
+
+
+    // function addToBasket(){
+    //     axios.patch("http://localhost:8080/cart/update/" + params.id, {items:[{id:props.id}] })
+    //     alert("item added to basket")
+    //     console.log("props.id: ",props.id);
+    // }
 
 
 

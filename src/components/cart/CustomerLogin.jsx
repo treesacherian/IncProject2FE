@@ -14,6 +14,8 @@ function CustomerLogin(props) {
     const [name, setName] = useState();
     const [quantity, setQuantity] = useState();
     const navigate = useNavigate();
+    const [tel, setTel] = useState();
+    const [address, setAddress] = useState();
     var visibility;
     var count;
 
@@ -53,6 +55,9 @@ function CustomerLogin(props) {
                 setId(cart.id);
                 setName(cart.buyer);
                 setQuantity(cart.items.length);
+                setTel(cart.tel);
+                setAddress(cart.address);
+                setUserId(cart.userId)
                 console.log("id:", id, "buyer: ", name);
                 count = 0;
                 break;
@@ -131,7 +136,11 @@ function CustomerLogin(props) {
             <div style={{ display: visibility, width: "50% " }}>
                 <CartStructure id={id}
                     buyer={name}
-                    itemCount={quantity} />
+                    itemCount={quantity}
+                    tel={tel}
+            address={address}
+            userId={userId}
+                     />
 
             </div>
 
