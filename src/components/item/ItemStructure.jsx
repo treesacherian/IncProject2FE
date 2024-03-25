@@ -20,11 +20,20 @@ function ItemStructure(props) {
 
     function deleteItem() {
         axios.delete("http://localhost:8080/item/delete/" + props.id)
-        // window.location.reload()
+        
 
         alert(props.name + " deleted");
-        props.getCartItems();
+        window.location.reload()
+        // props.getCartItems();
     }
+
+    // function deleteItemFromCart() {
+    //            axios.patch("http://localhost:8080/item/checkIn/"+props.id/+'/'+params.id)
+        
+    //     alert(props.name + " deleted");
+    //     window.location.reload()
+       
+    // }
 
     function updateQuantity() {
         axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
@@ -49,11 +58,12 @@ function ItemStructure(props) {
 
 
 
-    // function addToBasket(){
-    //     axios.patch(`http://localhost:8080/cart/update/` + params.id, {items:[{id:props.id}] })
-    //     alert("item added to basket")
-    //     console.log("props.id: ",props.id);
-    // }
+    function addToBasket(){
+        axios.patch('http://localhost:8080/item/checkOut/' +props.id+'/'+ params.id)
+        alert("item added to basket");
+        navigate(-1);
+        console.log("props.id: ",props.id);
+    }
 
 
 
@@ -72,7 +82,7 @@ function ItemStructure(props) {
                 <p className="col">  PRICE: £{props.price} </p>
                 <div style={{ display: "inline-block" }}>
                     <p style={{ display: visiblity }} className="col"  >  QUANTITY: {itemQuantity} </p>
-                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
+                    <button className="btn btn-success" style={{display: visiblity,  width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
                     <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
                 </div>
                 <p style={{ display: visiblity }} className="col" > <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
@@ -100,7 +110,7 @@ function ItemStructure(props) {
             </button>
 
             <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteItem() }}><strong>Delete</strong></button>
-            {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
+            <button  style={{display:props.visStatus, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button>
         </div>
 
 
@@ -112,8 +122,9 @@ function ItemStructure(props) {
     );
 }
 
-//     ItemStructure.propTypes = {
-//         quantity: PropTypes.number
-// }
+    ItemStructure.propTypes = {
+        quantity: PropTypes.number,
+        getCartItems:PropTypes.func.isRequired
+}
 
 export default ItemStructure;

@@ -26,7 +26,7 @@ function AddItemToCart() {
     // }
     return (
         <div style={{ backgroundColor: "#fcc72b", padding: "50px", height:"1800px" }}>
-            <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
+            {/* <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
                 onSubmit={e => {
 
                     e.preventDefault()
@@ -89,23 +89,15 @@ function AddItemToCart() {
                         />
 
                     </div>
-                    {/* <div label htmlFor="itemQuantity" className="form-label">Cart
-                        <input size="50"
-                            id="cartid"
-                            className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
-                            type="number"
-                            value={ params.id}
-                            onChange={e => setItemQuantity(e.target.value)}
-                            required
-                        /> */}
+                    
 
                 </div>
 
 
                 <button style={{ margin: "5px", width: "150px", color:"#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
 
-            </form>
-            {/* <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button> */}
+            </form> */}
+           
         <br></br>
          <h3>Current Stock Items</h3>
             <DisplayItems />

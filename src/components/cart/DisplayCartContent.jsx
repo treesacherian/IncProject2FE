@@ -41,6 +41,9 @@ function DisplayCartContent() {
 
            
             getCartItems={getCartItems}
+            
+            disStatus={true}
+            visStatus="none"
 
         />
 

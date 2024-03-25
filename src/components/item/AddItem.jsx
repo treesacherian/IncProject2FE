@@ -11,7 +11,7 @@ function AddItem({}) {
 
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
-    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemQuantity, setItemQuantity] = useState(1);
     const [cartId, setCartId] = useState();
     const params = useParams("");
     const navigate = useNavigate();
@@ -95,7 +95,7 @@ function AddItem({}) {
                 </div>
 
 
-                <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
+                 <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
                     <input size="50"
                         id="itemQuantity"
                         className="form-control border border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
@@ -105,7 +105,7 @@ function AddItem({}) {
                         contentEditable
                     />
 
-                </div>
+                </div> 
 
 
                 <button id="itemSubmit" style={{ margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
