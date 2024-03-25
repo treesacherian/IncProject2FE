@@ -72,8 +72,8 @@ function ItemStructure(props) {
                 <p className="col">  PRICE: £{props.price} </p>
                 <div style={{ display: "inline-block" }}>
                     <p style={{ display: visiblity }} className="col"  >  QUANTITY: {itemQuantity} </p>
-                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
-                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
+                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
+                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
                 </div>
                 <p style={{ display: visiblity }} className="col" > <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
             </div>
@@ -85,7 +85,7 @@ function ItemStructure(props) {
 
             <button
                 className="btn btn-success"
-                style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }}
+                style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }}
                 onClick={() => {
                     updateQuantity();
 
@@ -99,7 +99,7 @@ function ItemStructure(props) {
                 <strong>Update Quantity</strong>
             </button>
 
-            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteItem() }}><strong>Delete</strong></button>
+            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => { deleteItem() }}><strong>Delete</strong></button>
             {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
         </div>
 

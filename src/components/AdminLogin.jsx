@@ -75,8 +75,8 @@ function AdminLogin() {
                 <Form.Label style={{ width: "30%" }}>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
             </Form.Group>
-            <Button style={{ float: "right", margin: "30px" }} variant="primary" type="submit" >
-                Submit
+            <Button style={{ float: "right",  margin: "30px", width: "100px", color: "#fdc1da", backgroundColor: "#11663f"  }} variant="success" type="submit" >
+                <strong>Submit</strong>
             </Button>
 
         </Form>

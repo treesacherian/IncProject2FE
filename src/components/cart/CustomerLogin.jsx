@@ -124,7 +124,7 @@ function CustomerLogin(props) {
                     />
                 </div >
                 <div style={{ float: "right" }}>
-                    <button style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
+                    <button style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da", backgroundColor: "#11663f" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
                 </div>
 
 

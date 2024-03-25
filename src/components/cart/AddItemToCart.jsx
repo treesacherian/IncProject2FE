@@ -102,7 +102,7 @@ function AddItemToCart() {
                 </div>
 
 
-                <button style={{ margin: "5px", width: "150px", color:"#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
+                <button style={{ margin: "5px", width: "150px", color:"#fdc1da", backgroundColor: '#11663f' }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
 
             </form>
             {/* <button className="btn btn-primary" style = {{margin: "5px"}} type="button" onClick={handleClick}>Submit</button> */}
