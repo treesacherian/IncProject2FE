@@ -23,8 +23,7 @@ function AdminLogin() {
    
 
     function handleSubmit() {
-        setAdminId("");
-        setPassword("");
+       
 
         for (const admin of admins) {
 
@@ -50,7 +49,8 @@ function AdminLogin() {
             
         }
         else alert ("Not authorised to access this page");
-
+        setAdminId("");
+        setPassword("");
 
     }
 

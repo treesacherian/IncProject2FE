@@ -50,7 +50,7 @@ function ItemStructure(props) {
 
 
     // function addToBasket(){
-    //     axios.patch("http://localhost:8080/cart/update/" + params.id, {items:[{id:props.id}] })
+    //     axios.patch(`http://localhost:8080/cart/update/` + params.id, {items:[{id:props.id}] })
     //     alert("item added to basket")
     //     console.log("props.id: ",props.id);
     // }
