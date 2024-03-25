@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# Front End code for project 2 during incubation.
+## Shop application for company CCZone.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
