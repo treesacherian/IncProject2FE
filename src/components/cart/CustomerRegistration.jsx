@@ -90,6 +90,7 @@ function CustomerRegistration(props) {
                 >
                     <div style={{ marginLeft: "10px", display: "inline-block" }} label htmlFor="itemName" className="form-label"><strong>Customer Name</strong>
                         <input size="50"
+                        placeholder="Enter name.."
                             id="buyer"
                             className="form-control border border-success rounded"
                             style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
@@ -104,6 +105,7 @@ function CustomerRegistration(props) {
                     <div style={{ marginLeft: "10px", display: "inline-block" }} label htmlFor="itemPrice" className="form-label"><strong>Telephone Number</strong>
                         <input size="50"
                             id="tel"
+                            placeholder="Enter phone number.."
                             className="form-control border border-success rounded"
                             style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                             type="text"
@@ -117,6 +119,7 @@ function CustomerRegistration(props) {
                     <div style={{ marginLeft: "10px", display: "inline-block" }} label htmlFor="itemQuantity" className="form-label"><strong>Address</strong>
                         <input size="50"
                             id="address"
+                            placeholder="Enter address.."
                             className="form-control border border-success rounded"
                             style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                             type="text"
@@ -130,6 +133,7 @@ function CustomerRegistration(props) {
                     <div style={{ marginLeft: "10px", display: "inline-block" }} label htmlFor="itemQuantity" className="form-label"><strong>User Id</strong>
                         <input size="50"
                             id="userId"
+                            placeholder="Enter user ID.."
                             className="form-control border border-success rounded"
                             style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                             type="text"
@@ -143,6 +147,7 @@ function CustomerRegistration(props) {
                     <div style={{ marginLeft: "10px", display: "inline-block" }} label htmlFor="itemQuantity" className="form-label"><strong>Password</strong>
                         <input size="50"
                             id="password"
+                            placeholder="Enter password.."
                             className="form-control border border-success rounded"
                             style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                             type="password"

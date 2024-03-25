@@ -102,6 +102,7 @@ function CustomerLogin(props) {
 
                 <div style={{ display: "inline-block", marginLeft: "10px" }} label htmlFor="userId" className="form-label"><strong>User Id</strong>
                     <input size="50"
+                    placeholder="enter user ID"
                         id="userId"
                         className="form-control border border-success rounded"
                         style={{ display: "inline-block", width: "200px", height: "37px", margin: "5px", marginTop: "30px" }}
@@ -114,6 +115,7 @@ function CustomerLogin(props) {
 
                 <div style={{ display: "inline-block", marginLeft: "10px" }} label htmlFor="password" className="form-label"><strong>Password</strong>
                     <input size="50"
+                    placeholder="enter password"
                         id="password"
                         className="form-control border border-success rounded"
                         style={{ display: "inline-block", width: "200px", height: "37px", margin: "5px", marginTop: "30px" }}
@@ -131,7 +133,7 @@ function CustomerLogin(props) {
 
 
             </form>
-            <p>New customers please click <a href="/cart/create">here </a> to register</p>
+            <p>New customers please click <a href="/cart/create" style={{ color: "#074eb8" }}>here </a> to register</p>
 
             <div style={{ display: visibility, width: "50% " }}>
                 <CartStructure id={id}

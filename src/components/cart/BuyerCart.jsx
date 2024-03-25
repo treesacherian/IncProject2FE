@@ -54,6 +54,7 @@ function BuyerCart() {
             <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label"><strong>Customer Name</strong>
                 <input size="50"
                     id="buyer"
+                    placeholder="Customer name"
                     className="form-control border-3 border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
                     type="text"
                     value={buyer}

@@ -120,7 +120,7 @@ function Checkout() {
         </tfoot>
       </Table>
       <br/>
-      <button id="btn-print" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da"}}
+      <button id="btn-print" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f"}}
       onClick={() => window.print()}><strong>Print Invoice</strong></button>
       
     </div>

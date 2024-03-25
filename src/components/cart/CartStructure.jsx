@@ -52,9 +52,9 @@ function CartStructure(props) {
 
 
                     <h3 style={{ marginLeft: "10px" }}>Cart: {props.id}<></>
-                        <img style={{ width: "7%" }} src={CartLogo}></img>
+                        <img alt="a small black shopping cart"style={{ width: "7%" }} src={CartLogo}></img>
                         <p className="numberCircle" style={{ display: "inline" }}>{props.itemCount}</p>
-                        <></>   &nbsp; <img style={{ width: "5%" }} src={userLogo}></img>
+                        <></>   &nbsp; <img alt="a small basic logo, shape is outline of a persons profile " style={{ width: "5%" }} src={userLogo}></img>
                         {/* {props.buyer} */}
                         <Popup trigger=
                             {<button style={{ border: "none", color: "blue", background:"none" }}><u>{props.buyer}</u> </button>}
