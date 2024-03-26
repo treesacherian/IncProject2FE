@@ -17,6 +17,7 @@ function AddItem({}) {
     const navigate = useNavigate();
     const [items, setItems] = useState([]);
     const itemList = [];
+   
     
     function getItems() {
         axios.get("http://localhost:8080/item/get")
@@ -36,11 +37,42 @@ function AddItem({}) {
             id={item.id}
          name={item.itemName}
          price={item.itemPrice}
-         
+         compStatus={"AddItem"}
         />
 
         )
     }
+
+    function handleSubmit(){
+        // var status=true;
+        // console.log("Items:",items);
+        // for (const item of items) {
+        //     console.log(item.itemName, itemName, item.itemPrice, itemPrice)
+        //      if (item && item.itemName === itemName && item.itemPrice === itemPrice) {
+        //         alert("Item already exists");
+        //         status = false;
+        //                   break;
+                          
+        //     }
+        // }
+        // console.log("status:",status);
+        // if (status == true) {
+            axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity })
+
+                        .then(response => {
+                            
+                            setItemName("");
+                            setItemPrice("");
+                            setItemQuantity(1);
+                            
+                            getItems();
+
+                        })
+
+                        .catch(err => console.error(err))
+
+    // }
+}
     
    
 
@@ -51,22 +83,23 @@ function AddItem({}) {
                 onSubmit={e => {
 
                     e.preventDefault()
-                    setCartId(params.id)
+                    setCartId(params.id);
+                    handleSubmit();
 
 
-                    axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
+                    // axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
 
-                        .then(response => {
+                    //     .then(response => {
                             
-                            setItemName("");
-                            setItemPrice("");
-                            setItemQuantity("");
+                    //         setItemName("");
+                    //         setItemPrice("");
+                    //         setItemQuantity(1);
                             
-                            getItems();
+                    //         getItems();
 
-                        })
+                    //     })
 
-                        .catch(err => console.error(err))
+                    //     .catch(err => console.error(err))
 
                 }
                 }

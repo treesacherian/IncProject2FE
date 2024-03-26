@@ -25,16 +25,20 @@ function ItemStructure(props) {
         
 
         alert(props.name + " deleted");
-        // window.location.reload()
-         props.getCartItems();
+        window.location.reload()
+        //  props.getCartItems();
     }
 
     function deleteItemFromCart() {
+
+        if(props.compStatus==="AddItem"){deleteItem();}
+else{
+
                axios.patch("http://localhost:8080/item/checkIn/"+props.id)
         
         alert(props.name + " deleted");
         window.location.reload()
-       
+}  
     }
 
     function updateQuantity() {
@@ -79,7 +83,7 @@ function ItemStructure(props) {
 
     return (
         <div style={{ width: "30%" }}>
-            <h5><u>Items: {props.id}</u></h5>
+            {/* <h5><u>Items: {props.id}</u></h5> */}
 
 
 
