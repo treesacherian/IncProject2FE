@@ -1,39 +1,105 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayStockItems from "./DisplayStockItems";
-function AddItem() {
+import DisplayItems from "./DisplayItems";
+import ItemStructure from "./ItemStructure";
+import propTypes from "prop-types";
+
+function AddItem({}) {
 
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
-    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemQuantity, setItemQuantity] = useState(1);
     const [cartId, setCartId] = useState();
     const params = useParams("");
     const navigate = useNavigate();
+    const [items, setItems] = useState([]);
+    const itemList = [];
+   
+    
+    function getItems() {
+        axios.get("http://localhost:8080/item/get")
+        
+            .then((response) => { setItems(response.data);
+            console.log("response.data: ",response.data);
+             })
+             
+            .catch(console.log())
+            console.log("items1: ",items);
+    }
+    useEffect(() => { getItems() }, [])
+   
+    for (const item of items) {
+        
+        itemList.push(<ItemStructure
+            id={item.id}
+         name={item.itemName}
+         price={item.itemPrice}
+         compStatus={"AddItem"}
+        />
+
+        )
+    }
+
+    function handleSubmit(){
+        // var status=true;
+        // console.log("Items:",items);
+        // for (const item of items) {
+        //     console.log(item.itemName, itemName, item.itemPrice, itemPrice)
+        //      if (item && item.itemName === itemName && item.itemPrice === itemPrice) {
+        //         alert("Item already exists");
+        //         status = false;
+        //                   break;
+                          
+        //     }
+        // }
+        // console.log("status:",status);
+        // if (status == true) {
+            axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity })
+
+                        .then(response => {
+                            
+                            setItemName("");
+                            setItemPrice("");
+                            setItemQuantity(1);
+                            
+                            getItems();
+
+                        })
+
+                        .catch(err => console.error(err))
+
+    // }
+}
+    
+   
+
+
     return (
         <div style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }}>
             <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
                 onSubmit={e => {
 
                     e.preventDefault()
-                    setCartId(params.id)
+                    setCartId(params.id);
+                    handleSubmit();
 
 
-                    axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
+                    // axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
 
-                        .then(response => {
+                    //     .then(response => {
+                            
+                    //         setItemName("");
+                    //         setItemPrice("");
+                    //         setItemQuantity(1);
+                            
+                    //         getItems();
 
-                            setItemName("");
-                            setItemPrice("");
-                            setItemQuantity("");
-                            // navigate("http://localhost:8080/cart/get/" + params.id)
-                            // navigate(-1)
-                            window.location.reload();
+                    //     })
 
-                        })
-
-                        .catch(err => console.error(err))
+                    //     .catch(err => console.error(err))
 
                 }
                 }
@@ -62,7 +128,7 @@ function AddItem() {
                 </div>
 
 
-                <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
+                 <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
                     <input size="50"
                         id="itemQuantity"
                         className="form-control border border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
@@ -72,7 +138,7 @@ function AddItem() {
                         contentEditable
                     />
 
-                </div>
+                </div> 
 
 
                 <button id="itemSubmit" style={{ margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
@@ -82,15 +148,24 @@ function AddItem() {
 
             </form >
 
-            {/* /************    New code******************** */}
+           
 
-            <DisplayStockItems />
+            {/* <DisplayItems /> */}
+           <div style={{ columnCount: "2"}}>
+            <div style={{ width:"200%"}}> {itemList}</div>
+          
+
+           </div>
+          
+          
 
 
-            {/* /************    New code******************** */}
+            
 
         </div >
     );
 }
-
+AddItem.propTypes={
+    getItems:propTypes.func.isRequired
+}
 export default AddItem;
