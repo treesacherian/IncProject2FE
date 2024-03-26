@@ -54,6 +54,7 @@ function BuyerCart() {
             <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label"><strong>Customer Name</strong>
                 <input size="50"
                     id="buyer"
+                    placeholder="Customer name"
                     className="form-control border-3 border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
                     type="text"
                     value={buyer}
@@ -62,7 +63,7 @@ function BuyerCart() {
                 />
             </div>
 
-            <button className="btn btn-success" style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px", color:"#fdc1da" }} type="button" onClick={handleclick}><strong>Create New Cart</strong></button>
+            <button className="btn btn-success" style={{ width: "200px", height: "40px", margin: "5px", marginLeft: "5px", marginTop: "15px", color:"#fdc1da", backgroundColor:'#11663f'  }} type="button" onClick={handleclick}><strong>Create New Cart</strong></button>
             </div>
             </div>
             <br></br><br></br>

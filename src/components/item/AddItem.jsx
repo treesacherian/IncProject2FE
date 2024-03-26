@@ -17,8 +17,7 @@ function AddItem({}) {
     const navigate = useNavigate();
     const [items, setItems] = useState([]);
     const itemList = [];
-   
-    
+
     function getItems() {
         axios.get("http://localhost:8080/item/get")
         
@@ -37,6 +36,7 @@ function AddItem({}) {
             id={item.id}
          name={item.itemName}
          price={item.itemPrice}
+
          compStatus={"AddItem"}
         />
 
@@ -77,6 +77,7 @@ function AddItem({}) {
    
 
 
+
     return (
         <div style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }}>
             <form className="card" style={{ width: "50%", position: "center", margin: "20px" }}
@@ -86,21 +87,10 @@ function AddItem({}) {
                     setCartId(params.id);
                     handleSubmit();
 
+               
 
-                    // axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
 
-                    //     .then(response => {
-                            
-                    //         setItemName("");
-                    //         setItemPrice("");
-                    //         setItemQuantity(1);
-                            
-                    //         getItems();
-
-                    //     })
-
-                    //     .catch(err => console.error(err))
-
+                 
                 }
                 }
             >
@@ -141,17 +131,18 @@ function AddItem({}) {
                 </div> 
 
 
-                <button id="itemSubmit" style={{ margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
+                <button id="itemSubmit" style={{ margin: "5px", width: "150px", color: "#fdc1da", backgroundColor: "#11663f" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
 
 
 
 
             </form >
 
-           
+  
 
             {/* <DisplayItems /> */}
            <div style={{ columnCount: "2"}}>
+
             <div style={{ width:"200%"}}> {itemList}</div>
           
 

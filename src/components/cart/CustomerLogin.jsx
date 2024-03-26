@@ -13,6 +13,8 @@ function CustomerLogin(props) {
     const [id, setId] = useState();
     const [name, setName] = useState();
     const [quantity, setQuantity] = useState();
+    const [tel, setTel] = useState();
+    const [address, setAddress] = useState();
     const navigate = useNavigate();
     const [tel, setTel] = useState();
     const [address, setAddress] = useState();
@@ -102,6 +104,7 @@ function CustomerLogin(props) {
 
                 <div style={{ display: "inline-block", marginLeft: "10px" }} label htmlFor="userId" className="form-label"><strong>User Id</strong>
                     <input size="50"
+                    placeholder="enter user ID"
                         id="userId"
                         className="form-control border border-success rounded"
                         style={{ display: "inline-block", width: "200px", height: "37px", margin: "5px", marginTop: "30px" }}
@@ -114,6 +117,7 @@ function CustomerLogin(props) {
 
                 <div style={{ display: "inline-block", marginLeft: "10px" }} label htmlFor="password" className="form-label"><strong>Password</strong>
                     <input size="50"
+                    placeholder="enter password"
                         id="password"
                         className="form-control border border-success rounded"
                         style={{ display: "inline-block", width: "200px", height: "37px", margin: "5px", marginTop: "30px" }}
@@ -124,23 +128,26 @@ function CustomerLogin(props) {
                     />
                 </div >
                 <div style={{ float: "right" }}>
-                    <button style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
+                    <button style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da", backgroundColor: "#11663f" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
                 </div>
 
 
 
 
             </form>
-            <p>New customers please click <a href="/cart/create">here </a> to register</p>
+            <p>New customers please click <a href="/cart/create" style={{ color: "#074eb8" }}>here </a> to register</p>
 
             <div style={{ display: visibility, width: "50% " }}>
                 <CartStructure id={id}
                     buyer={name}
-                    itemCount={quantity}
-                    tel={tel}
-            address={address}
-            userId={userId}
-                     />
+
+                    itemCount={quantity} 
+                tel={tel}
+                address={address}
+                userId={userId}
+                />
+
+
 
             </div>
 
