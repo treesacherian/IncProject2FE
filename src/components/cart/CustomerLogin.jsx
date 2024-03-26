@@ -13,8 +13,8 @@ function CustomerLogin(props) {
     const [id, setId] = useState();
     const [name, setName] = useState();
     const [quantity, setQuantity] = useState();
-    const [tel, setTel] = useState();
-    const [address, setAddress] = useState();
+    
+
     const navigate = useNavigate();
     const [tel, setTel] = useState();
     const [address, setAddress] = useState();

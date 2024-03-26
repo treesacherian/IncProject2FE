@@ -172,9 +172,9 @@ function CustomerRegistration(props) {
                     <div style={{ float: "right" }}>
 
                         <button id="itemSubmit" style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da", backgroundColor: "#11663f" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
-// =======
+{/* // =======
 //                         <button id="itemSubmit" style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
-// >>>>>>> newDevBranch
+// >>>>>>> newDevBranch */}
 
                     </div>
 
