@@ -77,12 +77,12 @@ function DisplayCartContent() {
                         {cartTotal.toFixed(2)}
                     </h4>
                 </div>
-                <div style={{marginLeft:"10px"}}>
+                <div style={{marginLeft:"10px", columnCount: "2", width:"100%"}}>
                 {itemList}
                 </div>
                 <div>
                     <br></br>
-                    <div className="card" style={{ Width: "30%", backgroundColor:"#fdc1da" }}>
+                    <div className="card" style={{ Width: "40%", backgroundColor:"#fdc1da" }}>
                         <h4 style={{ position: "right" }}>Total to pay: £
                             {cartTotal.toFixed(2)}
                         </h4>

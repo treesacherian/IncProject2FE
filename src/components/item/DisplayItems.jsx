@@ -45,7 +45,7 @@ function DisplayItems () {
     
     return ( 
         <div>
-            <div  style={{ backgroundColor: "5dbc4d", width: "80%" }}>
+            <div  style={{columnCount: "2", backgroundColor: "5dbc4d", width: "100%" }}>
                  {itemList}
                </div>
         </div>

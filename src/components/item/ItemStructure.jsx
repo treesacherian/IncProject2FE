@@ -85,7 +85,7 @@ function ItemStructure(props) {
 
 
 
-            <div className="card" style={{ Width: "20%" }}>
+            <div className="card" style={{ Width: "30%" }}>
                 <p className="col">  ID: {props.id} </p>
                 <p className="col"> ITEM : {props.name} </p>
                 <p className="col">  PRICE: £{props.price} </p>
