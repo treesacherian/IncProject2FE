@@ -52,9 +52,12 @@ function CartStructure(props) {
 
 
                     <h3 style={{ marginLeft: "10px" }}>Cart: {props.id}<></>
+
                         <img alt="a small black shopping cart"style={{ width: "7%" }} src={CartLogo}></img>
                         <p className="numberCircle" style={{ display: "inline" }}>{props.itemCount}</p>
                         <></>   &nbsp; <img alt="a small basic logo, shape is outline of a persons profile " style={{ width: "5%" }} src={userLogo}></img>
+
+
                         {/* {props.buyer} */}
                         <Popup trigger=
                             {<button style={{ border: "none", color: "blue", background:"none" }}><u>{props.buyer}</u> </button>}
@@ -72,8 +75,13 @@ function CartStructure(props) {
 
 
                     <div className="card-text" style={{ padding: "10px" }}>
+
                         <button id="btn-addItem" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
                         <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", paddingBottom: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => navigate("/cart/get/" + props.id)} ><strong>Select</strong></button>
+// =======
+//                         <button id="btn-addItem" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
+//                         <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", paddingBottom: "5px", color: "#fdc1da" }} onClick={() => navigate("/cart/get/" + props.id)} ><strong>Select</strong></button>
+// >>>>>>> newDevBranch
                         {/* <button onClick={() => navigate("/cart/get/" + props.id)} >Update Items</button> */}
                         <button disabled={disabledStatus} className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => { deleteCart() }}><strong>Delete Cart</strong></button>
 

@@ -24,24 +24,26 @@ import AdminLogin from './components/AdminLogin'
 import CreateCart from './components/cart/CreateCart'
 
 
+
 function App() {
 
-  const [carts, setCarts] = useState([]);
+const [carts, setCarts] = useState([]);
 
 
-  /*************code added on 19/03 */
-    function getCarts() {
-      axios.get("http://localhost:8080/cart/get")
-        .then((response) => { setCarts(response.data); })
-        .catch(console.log())
-    }
-    useEffect(() => { getCarts() }, [])
-  
-  /************************************** */
+/*************code added on 19/03 */
+  function getCarts() {
+    axios.get("http://localhost:8080/cart/get")
+      .then((response) => { setCarts(response.data); })
+      .catch(console.log())
+  }
+  useEffect(() => { getCarts() }, [])
+
+/************************************** */
 
 
   return (
     <body>
+
     <div>
       <BrowserRouter>
         {/* <nav className="navbar align-content-center " style={{ display: "flex", backgroundColor: "#526899", }}> */}
@@ -59,6 +61,7 @@ function App() {
             <p style={{ float: "inline-end", textAlign: "end", fontFamily: "cursive", color: "#fdc1da" }}><b>Here to help with the cost of living!</b></p>
             {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
           </div>
+
 
         </nav>
 
@@ -96,6 +99,25 @@ function App() {
 
 
         </Routes>
+
+
+
+
+            <Route path='/item' element={<DisplayItems />} />
+            
+            <Route path='/cart/create' element={<CustomerRegistration carts={carts}/>}/>
+
+          <Route path='/item' element={<DisplayStockItems />} />
+          <Route path='/checkout/:id' element={<Checkout />} />
+          <Route path='/admin' element={<AdminLogin />} />
+
+
+
+
+
+
+          </Routes>
+
 
 
 

@@ -13,17 +13,32 @@ function ItemStructure(props) {
 
     const params = useParams("");
     const [itemTotal, setItemTotal] = useState(props.price * props.quantity);
-    // let itemTotal = props.price * props.quantity
-    let visiblity = false;
+       let visiblity,visible = false;
+   
+   var disableStatus=false;
+    const [items, setItems] = useState([]);
 
 
 
     function deleteItem() {
         axios.delete("http://localhost:8080/item/delete/" + props.id)
-        // window.location.reload()
+
 
         alert(props.name + " deleted");
-        props.getCartItems();
+        window.location.reload()
+        //  props.getCartItems();
+    }
+
+    function deleteItemFromCart() {
+
+        if(props.compStatus==="AddItem"){deleteItem();}
+else{
+
+               axios.patch("http://localhost:8080/item/checkIn/"+props.id)
+        
+        alert(props.name + " deleted");
+        window.location.reload()
+}  
     }
 
     function updateQuantity() {
@@ -37,43 +52,51 @@ function ItemStructure(props) {
     
 
 
-    // function updateQuantity() {
-    //     axios.patch("http://localhost:8080/item/update/" + props.id, { itemQuantity })
-    //     setItemTotal( props.price * itemQuantity);
-    //     alert("Quantity updated");
-    //     props.getCartItems();
-
-    // }
+    
 
 
 
 
+    function addToBasket(){
+        axios.patch('http://localhost:8080/item/checkOut/' +props.id+'/'+ params.id)
+        alert("item added to basket");
+       
+        navigate("/cart/get/"+params.id);
+        console.log("props.id: ",props.id);
+    }
 
-    // function addToBasket(){
-    //     axios.patch("http://localhost:8080/cart/update/" + params.id, {items:[{id:props.id}] })
-    //     alert("item added to basket")
-    //     console.log("props.id: ",props.id);
-    // }
+
+
 
 
 
     if (!props.quantity) { visiblity = "none"; }
+       if(props.cartId) {disableStatus=true; }
+      
+      console.log("params.id:",params.id);
+      if(!params.id||props.visStatus==="none") { visible = "none"; }
+
     return (
         <div style={{ width: "30%" }}>
-            <h5><u>Items: {props.id}</u></h5>
+            {/* <h5><u>Items: {props.id}</u></h5> */}
 
 
 
 
 
-            <div className="card" style={{ Width: "20%" }}>
+            <div className="card" style={{ Width: "30%" }}>
                 <p className="col">  ID: {props.id} </p>
                 <p className="col"> ITEM : {props.name} </p>
                 <p className="col">  PRICE: £{props.price} </p>
                 <div style={{ display: "inline-block" }}>
                     <p style={{ display: visiblity }} className="col"  >  QUANTITY: {itemQuantity} </p>
+
                     <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
                     <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
+// =======
+//                     <button className="btn btn-success" style={{display: visiblity,  width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
+//                     <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
+// >>>>>>> newDevBranch
                 </div>
                 <p style={{ display: visiblity }} className="col" > <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
             </div>
@@ -99,8 +122,14 @@ function ItemStructure(props) {
                 <strong>Update Quantity</strong>
             </button>
 
+
             <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => { deleteItem() }}><strong>Delete</strong></button>
             {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
+// =======
+//             <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteItemFromCart() }}><strong>Delete</strong></button>
+//             {/* <button disabled={disableStatus} style={{display:props.visStatus, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button> */}
+//             <button disabled={disableStatus} style={{display:visible, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button>
+// >>>>>>> newDevBranch
         </div>
 
 
@@ -112,8 +141,9 @@ function ItemStructure(props) {
     );
 }
 
-//     ItemStructure.propTypes = {
-//         quantity: PropTypes.number
-// }
+    ItemStructure.propTypes = {
+        quantity: PropTypes.number,
+        getCartItems:PropTypes.func.isRequired
+}
 
 export default ItemStructure;

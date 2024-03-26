@@ -16,6 +16,8 @@ function CustomerLogin(props) {
     const [tel, setTel] = useState();
     const [address, setAddress] = useState();
     const navigate = useNavigate();
+    const [tel, setTel] = useState();
+    const [address, setAddress] = useState();
     var visibility;
     var count;
 
@@ -138,11 +140,13 @@ function CustomerLogin(props) {
             <div style={{ display: visibility, width: "50% " }}>
                 <CartStructure id={id}
                     buyer={name}
+
                     itemCount={quantity} 
                 tel={tel}
                 address={address}
                 userId={userId}
                 />
+
 
 
             </div>
@@ -156,5 +160,6 @@ function CustomerLogin(props) {
 CustomerLogin.prototype = {
     getCarts: propTypes.func.isRequired
 }
+
 
 export default CustomerLogin;

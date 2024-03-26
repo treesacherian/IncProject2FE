@@ -11,7 +11,7 @@ function AddItem({}) {
 
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState(0.0);
-    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemQuantity, setItemQuantity] = useState(1);
     const [cartId, setCartId] = useState();
     const params = useParams("");
     const navigate = useNavigate();
@@ -36,12 +36,45 @@ function AddItem({}) {
             id={item.id}
          name={item.itemName}
          price={item.itemPrice}
-         
+
+         compStatus={"AddItem"}
         />
 
         )
     }
 
+    function handleSubmit(){
+        // var status=true;
+        // console.log("Items:",items);
+        // for (const item of items) {
+        //     console.log(item.itemName, itemName, item.itemPrice, itemPrice)
+        //      if (item && item.itemName === itemName && item.itemPrice === itemPrice) {
+        //         alert("Item already exists");
+        //         status = false;
+        //                   break;
+                          
+        //     }
+        // }
+        // console.log("status:",status);
+        // if (status == true) {
+            axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity })
+
+                        .then(response => {
+                            
+                            setItemName("");
+                            setItemPrice("");
+                            setItemQuantity(1);
+                            
+                            getItems();
+
+                        })
+
+                        .catch(err => console.error(err))
+
+    // }
+}
+    
+   
 
 
 
@@ -51,23 +84,13 @@ function AddItem({}) {
                 onSubmit={e => {
 
                     e.preventDefault()
-                    setCartId(params.id)
+                    setCartId(params.id);
+                    handleSubmit();
+
+               
 
 
-                    axios.post("http://localhost:8080/item/create", { itemName, itemPrice, itemQuantity, cart: params.id })
-
-                        .then(response => {
-
-                            setItemName("");
-                            setItemPrice("");
-                            setItemQuantity("");
-                            
-                            getItems();
-
-                        })
-
-                        .catch(err => console.error(err))
-
+                 
                 }
                 }
             >
@@ -95,7 +118,7 @@ function AddItem({}) {
                 </div>
 
 
-                <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
+                 <div style={{ marginLeft: "10px" }} label htmlFor="itemQuantity" className="form-label"><strong>Item Quantity</strong>
                     <input size="50"
                         id="itemQuantity"
                         className="form-control border border-success rounded" style={{ width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
@@ -105,7 +128,7 @@ function AddItem({}) {
                         contentEditable
                     />
 
-                </div>
+                </div> 
 
 
                 <button id="itemSubmit" style={{ margin: "5px", width: "150px", color: "#fdc1da", backgroundColor: "#11663f" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
@@ -115,8 +138,11 @@ function AddItem({}) {
 
             </form >
 
+  
+
             {/* <DisplayItems /> */}
-            <div style={{ columnCount: "2"}}>
+           <div style={{ columnCount: "2"}}>
+
             <div style={{ width:"200%"}}> {itemList}</div>
           
 

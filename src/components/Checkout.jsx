@@ -65,14 +65,14 @@ function Checkout() {
   return (
     <div>
       <br />
-      <h1> Invoice for user - {userId}</h1>
+      <h1> Invoice for  {buyer}</h1>
       <br />
 
       <div style={{ width: '98%', margin: '0 auto' }}>
       <Table striped bordered hover>
         <thead>
         <tr>
-            <th colSpan="2">CCZone Customer Invoice</th>
+            <th colSpan="2">@Zone Customer Invoice</th>
             <th colSpan="2" style={{ textAlign: 'right' }}>Invoice date: {date}</th>
           </tr>
         <tr>
@@ -105,7 +105,7 @@ function Checkout() {
           </tr>
           <tr>
             <td colSpan="3"><strong>Bank Details;</strong>
-              <br /> Account Name: CCZone Ltd
+              <br /> Account Name: @Zone Ltd
               <br /> Sort Code: 30-00-00
               <br /> Account Number: 12345678
             </td>

@@ -42,6 +42,11 @@ function DisplayCartContent() {
            
             getCartItems={getCartItems}
 
+            
+            disStatus={true}
+            visStatus="none"
+
+
         />
 
         )
@@ -58,27 +63,37 @@ function DisplayCartContent() {
         <div>
 
             <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
+            
                 <br></br>
                 <div style={{backgroundColor:"white", marginLeft:"10px", marginRight:"10px"}}><h3> Contents of Cart :{params.id}&nbsp;&nbsp;<img style={{ width: "3%" }} src={userLogo}></img>{buyer}</h3>
                 </div>
+
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "left", backgroundColor: "#11663f" }} className="btn btn-success" onClick={() => { navigate("/item/" + params.id) }}><strong>Continue Shopping</strong></button>
                 
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right", backgroundColor: "#11663f" }} className="btn btn-success" onClick={() => { navigate("/checkout/" + params.id) }}><strong>Checkout</strong></button>
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right", backgroundColor: "#11663f" }} className="btn btn-success" onClick={() => { navigate("/"); alert("Cart Saved") }}><strong>Save For Later</strong></button>
                 
                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right", backgroundColor: "#11663f" }} className="btn btn-success" onClick={() => { navigate(-1) }}><strong>Back</strong></button>
+// =======
+//                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "left" }} className="btn btn-success" onClick={() => { navigate("/item/" + params.id) }}><strong>Continue Shopping</strong></button>
+
+//                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate("/checkout/" + params.id) }}><strong>Checkout</strong></button>
+//                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate("/"); alert("Cart Saved") }}><strong>Save For Later</strong></button>
+
+//                 <button style={{ width: "200px", height: "40px", margin: "5px", padding: "5px", color: "#fdc1da", float: "right" }} className="btn btn-success" onClick={() => { navigate(-1) }}><strong>Back</strong></button>
+// >>>>>>> newDevBranch
                 <br></br><br></br><br></br>
                 <div className="card" style={{ Width: "10%", backgroundColor: "#fdc1da", float: "right", marginRight: "5px", padding: "10px" }}>
                     <h4 >Total to pay: £
                         {cartTotal.toFixed(2)}
                     </h4>
                 </div>
-                <div style={{marginLeft:"10px"}}>
+                <div style={{marginLeft:"10px", columnCount: "2", width:"100%"}}>
                 {itemList}
                 </div>
                 <div>
                     <br></br>
-                    <div className="card" style={{ Width: "30%", backgroundColor:"#fdc1da" }}>
+                    <div className="card" style={{ Width: "40%", backgroundColor:"#fdc1da" }}>
                         <h4 style={{ position: "right" }}>Total to pay: £
                             {cartTotal.toFixed(2)}
                         </h4>
