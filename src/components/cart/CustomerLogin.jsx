@@ -3,6 +3,7 @@ import propTypes from "prop-types";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import CartStructure from "./CartStructure"
+import vegPic from "../../pictures/vegPic.jpg";
 
 function CustomerLogin(props) {
 
@@ -87,11 +88,12 @@ function CustomerLogin(props) {
     return (
 
 
-        <div style={{ backgroundColor: "#fcc72b", padding: "10px", height: "1800px" }}>
+        <div style={{ backgroundColor: "#F8B751", padding: "50px", height: "1000px" }}>
             <h3>Returning customers, please login below</h3>
+            {/* <div className="card" style={{ width: "30%", margin: "50px" }}> */}
             <form
                 className="card"
-                style={{ width: "40%", }}
+                style={{ width: "30%", }}
                 onSubmit={e => {
 
                     e.preventDefault();
@@ -107,7 +109,7 @@ function CustomerLogin(props) {
                     placeholder="enter user ID"
                         id="userId"
                         className="form-control border border-success rounded"
-                        style={{ display: "inline-block", width: "200px", height: "37px", margin: "5px", marginTop: "30px" }}
+                        style={{ display: "inline-block", width: "100%", height: "37px", marginTop:"10px" }}
                         type="text"
                         value={userId}
                         onChange={e => { setUserId(e.target.value); console.log(e.target.value); }}
@@ -120,7 +122,7 @@ function CustomerLogin(props) {
                     placeholder="enter password"
                         id="password"
                         className="form-control border border-success rounded"
-                        style={{ display: "inline-block", width: "200px", height: "37px", margin: "5px", marginTop: "30px" }}
+                        style={{ display: "inline-block", width: "100%", height: "37px", marginTop:"10px" }}
                         type="password"
                         value={password}
                         onChange={e => { setPassword(e.target.value); console.log(e.target.value); }}
@@ -135,6 +137,7 @@ function CustomerLogin(props) {
 
 
             </form>
+            {/* </div> */}
             <p>New customers please click <a href="/cart/create" style={{ color: "#074eb8" }}>here </a> to register</p>
 
             <div style={{ display: visibility, width: "50% " }}>
@@ -150,7 +153,9 @@ function CustomerLogin(props) {
 
 
             </div>
-
+           <div> <img alt="picture of basket containing vegitables" className="text-center" 
+    style={{ borderRadius: "8px", marginLeft:"1200px", width: "30%" }} src={vegPic}></img>
+    </div>
         </div>
 
 

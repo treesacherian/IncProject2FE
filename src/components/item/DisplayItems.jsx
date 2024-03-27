@@ -53,12 +53,12 @@ function DisplayItems () {
     
     
     return ( 
-        <div>
+        <div style={{ backgroundColor: "#F8B751",  height: "18000px" }}>
 
-            <div  style={{ backgroundColor: "5dbc4d", width: "80%" }}>
-{/* // =======
-//             <div  style={{columnCount: "2", backgroundColor: "5dbc4d", width: "100%" }}>
-// >>>>>>> newDevBranch */}
+            {/* <div  style={{columnCount: "2", backgroundColor: "5dbc4d", width: "100%",  height: "19000px" }}> */}
+
+            <div  style={{columnCount: "2", backgroundColor: "5dbc4d", width: "100%" }}>
+
                  {itemList}
                </div>
         </div>

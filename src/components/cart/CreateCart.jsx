@@ -71,7 +71,7 @@ function CreateCart() {
 
 
     return (
-        <div style={{ backgroundColor: "#fcc72b", width: "100%", height: "1000px" }}>
+        <div style={{ backgroundColor: "#F8B751", width: "100%", height: "1000px" }}>
 
 
             <div id="cartCreate" className="card-body " style={{border:"rounded-3 ", width: "20%", padding: "20px", float:"right" }}>

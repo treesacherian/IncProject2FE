@@ -3,6 +3,7 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayItems from "../item/DisplayItems";
+import vegPic from '../../pictures/vegPic.jpg'
 
 import ItemStructure from "../item/ItemStructure";
 
@@ -62,8 +63,10 @@ function AddItemToCart() {
 
 
     return (
-        <div style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }}>
-            <div id="cartSearch" className="card-body" style={{ width: "20%", padding: "20px", border: "show ", borderColor: "black" }}>
+        <div style={{ backgroundColor: "#F8B751", padding: "50px", height: "28000px" }}>
+            
+            <div id="cartSearch" className="card-body" style={{ width: "30%", padding: "20px", border: "show ", borderColor: "black" }}>
+            
                 <div className="card">
                     <div style={{ marginLeft: "28px" }} label htmlFor="buyer" className="form-label"><strong>Item Search</strong>
                         <input size="50"
@@ -79,9 +82,12 @@ function AddItemToCart() {
             </div>
 
             <br></br>
+            
            
             <h3>Current Stock Items</h3>
+            <div style={{ columnCount:"2" }}>
             {itemList}
+            </div>
             {/* <DisplayItems /> */}
 
 

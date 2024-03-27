@@ -3,7 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import CreateCart from './cart/CreateCart'
+import CreateCart from './cart/CreateCart';
+import vegPic from "../pictures/vegPic.jpg";
 function AdminLogin() {
 
     const [adminId, setAdminId] = useState();
@@ -61,7 +62,11 @@ function AdminLogin() {
 
     }
 
-    return (<div className="card" style={{ width: "30%", margin: "50px" }}>
+    return (
+        <div style={{ backgroundColor: "#F8B751", padding: "50px",width:"100%", height: "1800px" }}>
+            
+    
+    <div className="card" style={{ width: "30%", margin: "50px" }}>
 
 
         <Form onSubmit={e => {
@@ -76,11 +81,11 @@ function AdminLogin() {
         }
         >
             <Form.Group className="mb-3" controlId="formGroupEmail" >
-                <Form.Label style={{ width: "30%" }}>Admin Id</Form.Label>
+                <Form.Label style={{ width: "30%" }}><b>Admin Id</b></Form.Label>
                 <Form.Control type="userId" placeholder="Enter Admin User Id" onChange={e => setAdminId(e.target.value)} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupPassword" >
-                <Form.Label style={{ width: "30%" }}>Password</Form.Label>
+                <Form.Label style={{ width: "30%" }}><b>Password</b></Form.Label>
                 <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
             </Form.Group>
 
@@ -90,20 +95,16 @@ function AdminLogin() {
             </Button>
 
         </Form>
-        {/* <div style={{float:"right"}}>
-        <button disabled={disabledStatus} type="button" className="btn btn-success" 
-        style={{ margin: "10px", color: "#fdc1da"}}
-        onClick={()=>navigate("/cart")}
-        >Cart</button>
-        <button disabled={disabledStatus}
-        type="button" className="btn btn-success" 
-        style={{ margin: "10px", color: "#fdc1da"}}
-        onClick={()=>navigate("/item")}
-        >Item</button>
-        </div> */}
-
+       
 
     </div>
+    
+    <div >
+    <img alt="picture of basket containing vegitables" className="text-center" 
+    style={{ borderRadius: "8px", marginLeft:"1200px", width: "30%" }} src={vegPic}></img>
+    </div>
+    </div>
+    
     );
 }
 

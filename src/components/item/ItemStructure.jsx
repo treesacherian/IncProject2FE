@@ -13,9 +13,9 @@ function ItemStructure(props) {
 
     const params = useParams("");
     const [itemTotal, setItemTotal] = useState(props.price * props.quantity);
-       let visiblity,visible = false;
-   
-   var disableStatus=false;
+    let visiblity, visible = false;
+
+    var disableStatus = false;
     const [items, setItems] = useState([]);
 
 
@@ -31,14 +31,14 @@ function ItemStructure(props) {
 
     function deleteItemFromCart() {
 
-        if(props.compStatus==="AddItem"){deleteItem();}
-else{
+        if (props.compStatus === "AddItem") { deleteItem(); }
+        else {
 
-               axios.patch("http://localhost:8080/item/checkIn/"+props.id)
-        
-        alert(props.name + " deleted");
-        window.location.reload()
-}  
+            axios.patch("http://localhost:8080/item/checkIn/" + props.id)
+
+            alert(props.name + " deleted");
+            window.location.reload()
+        }
     }
 
     function updateQuantity() {
@@ -49,20 +49,20 @@ else{
 
     }
 
-    
-
-
-    
 
 
 
 
-    function addToBasket(){
-        axios.patch('http://localhost:8080/item/checkOut/' +props.id+'/'+ params.id)
+
+
+
+
+    function addToBasket() {
+        axios.patch('http://localhost:8080/item/checkOut/' + props.id + '/' + params.id)
         alert("item added to basket");
-       
-        navigate("/cart/get/"+params.id);
-        console.log("props.id: ",props.id);
+
+        navigate("/cart/get/" + params.id);
+        console.log("props.id: ", props.id);
     }
 
 
@@ -71,65 +71,50 @@ else{
 
 
     if (!props.quantity) { visiblity = "none"; }
-       if(props.cartId) {disableStatus=true; }
-      
-      console.log("params.id:",params.id);
-      if(!params.id||props.visStatus==="none") { visible = "none"; }
+    if (props.cartId) { disableStatus = true; }
+
+    console.log("params.id:", params.id);
+    if (!params.id || props.visStatus === "none") { visible = "none"; }
 
     return (
-        <div style={{ width: "30%" }}>
-            {/* <h5><u>Items: {props.id}</u></h5> */}
+        <div style={{ width: "60%" }}>
+            <div style={{ display: "inline-block" }}>
 
+                <div className="card" style={{ Width: "100%" }}>
+                    <p className="col">  ID: {props.id} </p>
+                    <p className="col"> ITEM : {props.name} </p>
+                    <p className="col">  PRICE: £{props.price} </p>
+                    <div style={{ display: "inline-block" }}>
+                        <p style={{ display: visiblity }} className="col"  >  QUANTITY: {itemQuantity} </p>
 
+                        <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
+                        <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
+                        <button
+                    className="btn btn-success"
+                    style={{ display: visiblity, width: "150px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }}
+                    onClick={() => {
+                        updateQuantity();
 
+                        // navigate("/item/update/" + props.id)
 
+                    }
 
-            <div className="card" style={{ Width: "30%" }}>
-                <p className="col">  ID: {props.id} </p>
-                <p className="col"> ITEM : {props.name} </p>
-                <p className="col">  PRICE: £{props.price} </p>
-                <div style={{ display: "inline-block" }}>
-                    <p style={{ display: visiblity }} className="col"  >  QUANTITY: {itemQuantity} </p>
-
-                    <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
-                     <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
-{/* // =======
-//                     <button className="btn btn-success" style={{display: visiblity,  width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity + 1)}>+</button>
-//                     <button className="btn btn-success" style={{ display: visiblity, width: "50px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => setItemQuantity(itemQuantity - 1)}>-</button>
-// >>>>>>> newDevBranch */} 
+                    }
+                >
+                    <strong>Update </strong>
+                </button>
+                    </div>
+                    <p style={{ display: visiblity }} className="col" > <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
                 </div>
-                <p style={{ display: visiblity }} className="col" > <strong> Total: £{itemTotal.toFixed(2)}</strong> </p>
+
+                
+
+
+                <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => { deleteItemFromCart() }}><strong>Delete</strong></button>
+
+                <button disabled={disableStatus} style={{ display: visible, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button>
             </div>
-
-
-
-
-
-
-            <button
-                className="btn btn-success"
-                style={{ display: visiblity, width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }}
-                onClick={() => {
-                    updateQuantity();
-
-                    // navigate("/item/update/" + props.id)
-
-
-                }
-
-                }
-            >
-                <strong>Update Quantity</strong>
-            </button>
-
-
-            <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => { deleteItem() }}><strong>Delete</strong></button>
-            {/* <button style={{ width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={(e) => { addToBasket(e) }} >Add to basket</button> */}
-
-            {/* <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da" }} onClick={() => { deleteItemFromCart() }}><strong>Delete</strong></button> */}
-             {/* <button disabled={disableStatus} style={{display:props.visStatus, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button> */}
-           <button disabled={disableStatus} style={{display:visible, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button>
-
+            <br></br><br></br><br></br>
         </div>
 
 
@@ -141,9 +126,9 @@ else{
     );
 }
 
-    ItemStructure.propTypes = {
-        quantity: PropTypes.number,
-        getCartItems:PropTypes.func.isRequired
+ItemStructure.propTypes = {
+    quantity: PropTypes.number,
+    getCartItems: PropTypes.func.isRequired
 }
 
 export default ItemStructure;

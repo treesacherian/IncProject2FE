@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CartStructure from "./CartStructure"
 import { useNavigate } from "react-router-dom";
-
+import vegPic from "../../pictures/homeBackground.jpg";
 
 function CustomerRegistration(props) {
     const [id, setId] = useState();
@@ -73,7 +73,7 @@ function CustomerRegistration(props) {
     }
 
     return (
-        <div style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }} >
+        <div style={{ backgroundColor: "#F8B751", padding: "50px", height: "1000px" }} >
             <div style={{ float: "right", width: "50%" }}>
                 <h2>Customer Registration</h2>
 
@@ -172,9 +172,6 @@ function CustomerRegistration(props) {
                     <div style={{ float: "right" }}>
 
                         <button id="itemSubmit" style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da", backgroundColor: "#11663f" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
-{/* // =======
-//                         <button id="itemSubmit" style={{ float: "right", margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success" type="submit"><strong>Submit</strong></button>
-// >>>>>>> newDevBranch */}
 
                     </div>
 
@@ -193,6 +190,10 @@ function CustomerRegistration(props) {
                 }
 
             </div>
+            
+    <img alt="picture of basket containing vegitables" 
+    style={{ borderRadius: "8px", width: "30%" }} src={vegPic}></img>
+ 
 
         </div>
     );
