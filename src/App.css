@@ -37,6 +37,8 @@
   }
 }
 
+
+
 #cartSearch {
   
   display: inline-block;
@@ -49,6 +51,7 @@
   display: inline-block;
   padding:20px;
   margin:50px;
+  background-color: white;
   /* border:solid; 
   borderColor:   black; */
 
@@ -62,23 +65,59 @@
 
 }
 body{
-  background: url("../src/pictures/homeBackgroundcopy.jpg");
-  background-size: contain;
+  background: url("../src/pictures/homeBackground.jpg");
+  background-size: cover;
   height: 112vh;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
+ 
 }
 .numberCircle {
-   border-radius: 50%; 
+  border-radius: 50%; 
   width: 30px;
   height: 30px;
    padding: 4px; 
 
-  background: #fff;
-  border:2px solid #666;
+  background:red;
+  /* border:2px solid #666; */
   color: #666;
-  color: red;
+  color: white;
   text-align: center;
 
   font: 15px Arial, sans-serif;
+}
+
+.topright {
+  position: absolute;
+  top: 230px;
+  right: 36px;
+  
+  
+}
+
+.topleft {
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+ 
+}
+.center {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  right: 1px;
+ 
 }
