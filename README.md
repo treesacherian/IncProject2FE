@@ -19,6 +19,6 @@ You may also see any lint errors in the console.
 
 ## Creators
 
-This application was created by Tressa Cherian & Adele Watkins.
+This application was created by Treesa Cherian & Adele Watkins.
 
 
