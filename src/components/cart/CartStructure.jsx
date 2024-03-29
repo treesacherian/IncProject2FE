@@ -43,7 +43,7 @@ function CartStructure(props) {
 
 
 
-            <div className="d-inline-flex " style={{ maxWidth: "70%", margin: "40px" }}>
+            <div className="d-inline-flex " style={{ maxWidth: "80%", margin: "40px" }}>
 
 
 
@@ -76,7 +76,7 @@ function CartStructure(props) {
 
                     <div className="card-text" style={{ padding: "10px" }}>
 
-                        <button id="btn-addItem" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
+                        <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>
                         <button className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", paddingBottom: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => navigate("/cart/get/" + props.id)} ><strong>Select</strong></button>
 {/* // =======
 //                         <button id="btn-addItem" className="btn btn-success" style={{ marginLeft: "10px", padding: "5px", color: "#fdc1da" }} onClick={() => navigate("/item/" + props.id)} ><strong>Add Items</strong></button>

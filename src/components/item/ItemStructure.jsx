@@ -112,7 +112,7 @@ function ItemStructure(props) {
 
                 <button className="btn btn-success" style={{ width: "200px", height: "50px", margin: "5px", padding: "5px", color: "#fdc1da", backgroundColor: "#11663f" }} onClick={() => { deleteItemFromCart() }}><strong>Delete</strong></button>
 
-                <button disabled={disableStatus} style={{ display: visible, width: "200px", height: "50px", margin: "5px", padding: "5px" }} className="btn btn-danger col" onClick={() => { addToBasket() }} >Add to basket</button>
+                <button className="btn btn-success" disabled={disableStatus} style={{ display: visible, width: "200px", height: "50px", margin: "5px", padding: "5px" ,color: "#fdc1da", backgroundColor: "#11663f" }}  onClick={() => { addToBasket() }} ><strong>Add to basket</strong></button>
             </div>
             <br></br><br></br><br></br>
         </div>

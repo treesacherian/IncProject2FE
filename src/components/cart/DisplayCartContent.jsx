@@ -62,7 +62,7 @@ function DisplayCartContent() {
     return (
         <div>
 
-            <div style={{ backgroundColor: "#F8B751", width: "100%",  height: "1000px" }}>
+            <div style={{ backgroundColor: "#F8B751", width: "100%",  height: "1200px" }}>
             
                 <br></br>
                 <div style={{backgroundColor:"white", marginLeft:"10px", marginRight:"10px"}}><h3> Contents of Cart :{params.id}&nbsp;&nbsp;<img style={{ width: "3%" }} src={userLogo} alt="user Logo"></img>{buyer}</h3>
@@ -81,7 +81,7 @@ function DisplayCartContent() {
                         {cartTotal.toFixed(2)}
                     </h4>
                 </div>
-                <div style={{marginLeft:"10px", columnCount: "2", width:"100%"}}>
+                <div style={{marginLeft:"10px", columnCount: "4", width:"100%"}}>
                                   {itemList}
                 </div>
                 <div>

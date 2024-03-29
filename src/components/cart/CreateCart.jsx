@@ -83,8 +83,9 @@ function CreateCart() {
                     <input size="50"
                         id="buyer"
                         className="form-control border border-success rounded"
-                        style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px", marginTop: "30px" }}
+                        style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="text"
+                        placeholder="Enter Customer Name" 
                         value={buyer}
                         onChange={e => setBuyer(e.target.value)}
 
@@ -98,6 +99,7 @@ function CreateCart() {
                         className="form-control border border-success rounded"
                         style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="text"
+                        placeholder="Enter Contact Number"
                         value={tel}
                         onChange={e => setTel(e.target.value)}
 
@@ -111,6 +113,7 @@ function CreateCart() {
                         className="form-control border border-success rounded"
                         style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="text"
+                        placeholder="Enter Address"
                         value={address}
                         onChange={e => setAddress(e.target.value)}
 

@@ -102,7 +102,8 @@ function AddItem() {
                         className="form-control border border-success rounded" 
                         style={{ display: "inline-block", width: "250px", height: "37px", margin: "10px", marginLeft: "20px" }}
                         type="text"
-                        value={itemName}
+                        placeholder="Enter Item Name"                      
+                          value={itemName}
                         onChange={e => setItemName(e.target.value)}
 
                     />
@@ -115,6 +116,7 @@ function AddItem() {
                         className="form-control border border-success rounded" 
                         style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="number"
+                        placeholder="Enter Item Price"   
                         value={itemPrice}
                         onChange={e => setItemPrice(e.target.value)}
 
@@ -128,6 +130,7 @@ function AddItem() {
                         className="form-control border border-success rounded" 
                         style={{ display: "inline-block", width: "250px", height: "37px", margin: "5px", marginLeft: "20px" }}
                         type="number"
+                        placeholder="Enter Item Quantity" 
                         value={itemQuantity}
                         onChange={e => setItemQuantity(e.target.value)}
                         contentEditable

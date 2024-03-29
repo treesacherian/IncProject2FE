@@ -52,7 +52,7 @@ const [carts, setCarts] = useState([]);
     <body>
       <div style={{height:"50px"}}>
         <BrowserRouter>
-          {/* <nav className="navbar align-content-center " style={{ display: "flex", backgroundColor: "#526899", }}> */}
+         
 
           <nav className="navbar align-content-center " style={{ display: "flex", backgroundColor: "  #00450a" }}>
             <div>
@@ -60,12 +60,11 @@ const [carts, setCarts] = useState([]);
               <div className="homeimage"></div>
               <img class="text-center" style={{ width: "5%" }} src={homeLogo} alt="Image of a shopping trolley with the CCZone logo"></img>
               <Link to='/'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da",  backgroundColor: "#11663f" }}><strong>Home</strong></button></Link>
-              {/* <Link to='/cart'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da" }}><strong>Cart</strong></button></Link> */}
               <Link to='/admin'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da",  backgroundColor: "#11663f" }}><strong>Cart</strong></button></Link>
               <Link to='/item'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da",  backgroundColor: "#11663f" }}><strong>Item</strong></button> </Link>
               <Link to='/shopping'><button type="button" className="btn btn-success" style={{ margin: "10px", color: "#fdc1da",  backgroundColor: "#11663f" }}><strong>Shopping</strong></button> </Link>
               <p style={{ float: "inline-end", textAlign: "end", fontFamily: "cursive", color: "#fdc1da",marginRight:"20px" }}><b>Here to help with the cost of living!</b></p>
-              {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
+             
             </div>
 
           </nav>
