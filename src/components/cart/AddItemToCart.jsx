@@ -52,6 +52,7 @@ function AddItemToCart() {
             name={item.itemName}
             price={item.itemPrice}
             cartId={item.cartId}
+            image={item.image}
             
             // itemCount={count}
 
@@ -85,7 +86,7 @@ function AddItemToCart() {
             
            
             <h3>Current Stock Items</h3>
-            <div style={{ columnCount:"2" }}>
+            <div style={{ columnCount:"4" }}>
             {itemList}
             </div>
             {/* <DisplayItems /> */}

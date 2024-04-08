@@ -36,6 +36,7 @@ function AddItem() {
             id={item.id}
          name={item.itemName}
          price={item.itemPrice}
+         image={item.image}
 
          compStatus={"AddItem"}
         />
@@ -150,7 +151,7 @@ function AddItem() {
   
 
             {/* <DisplayItems /> */}
-           <div style={{ width:"100%", columnCount: "3"}}>
+           <div style={{ width:"auto", columnCount: "5"}}>
 
             <div > {itemList}</div>
           
